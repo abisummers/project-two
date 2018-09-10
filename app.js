@@ -90,4 +90,10 @@ app.locals.title = "Ironhack Portal";
 const index = require("./routes/index");
 app.use("/", index);
 
+const ideaRouter = require("./routes/ideas-router");
+app.use("/", ideaRouter);
+
+const projectRouter = require("./routes/project-router");
+app.use("/", projectRouter);
+
 module.exports = app;
