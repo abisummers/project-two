@@ -93,7 +93,7 @@ app.use("/", index);
 const ideaRouter = require("./routes/ideas-router");
 app.use("/", ideaRouter);
 
-const projectRouter = require("./routes/project-router");
+const projectRouter = require("./routes/projects-router");
 app.use("/", projectRouter);
 
 module.exports = app;
