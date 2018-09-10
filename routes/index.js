@@ -6,9 +6,4 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-//link to profile page. Can be moved later
-router.get("/profile", (req, res, next) => {
-  res.render("profile.hbs");
-});
-
 module.exports = router;
