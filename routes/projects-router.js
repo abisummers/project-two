@@ -1,7 +1,6 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 const Project = require("../models/project-model.js");
-
 
 router.get("/projects", (req, res, next) => {
     if (!req.user) {
@@ -31,22 +30,21 @@ router.get("/projects/:projectId", (req, res, next) => {
         res.locals.myProject = projectDoc;
         res.render("projects-views/project-details.hbs");
     })
-    .catch(err =>next(err));
+    .catch(err => next(err));
 });
 
-
 router.get("/add-project", (req, res, next) => {
-    if (!req.user) {
-      req.flash("error", "You must be logged in to see this page");
-      res.redirect("/");
-      return; 
-    }
-    res.render("projects-views/project-form.hbs");
+  if (!req.user) {
+    req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
+  res.render("projects-views/project-form.hbs");
 });
 
 router.post("/process-project", (req, res, next) => {
-    const { name, description, deadline, pictureUrl, linkUrl } = req.body;
-    const user = req.user._id;
+  const { name, description, deadline, pictureUrl, linkUrl } = req.body;
+  const user = req.user._id;
 
     Project.create({ name, description, deadline, pictureUrl, linkUrl, user })
     .then(projectDoc => {
@@ -56,10 +54,4 @@ router.post("/process-project", (req, res, next) => {
     .catch(err => next(err));
 });
 
-
 module.exports = router;
-
-
-
-
-

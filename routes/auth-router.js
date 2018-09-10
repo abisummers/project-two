@@ -26,6 +26,10 @@ router.get("/", (req, res, next) => {
   res.render("index.hbs");
 });
 
+router.get("profile", (req, res, next) => {
+  res.render("/profile.hbs");
+});
+
 router.post("/process-login", (req, res, next) => {
   const { userPassword, email } = req.body;
 
@@ -42,12 +46,20 @@ router.post("/process-login", (req, res, next) => {
         return;
       }
       req.logIn(userDoc, () => {
-        res.redirect("/");
+        res.redirect("/profile");
       });
     })
     .catch(err => next(err));
 });
 
 //-----------------LOG OUT -------------------------------
+
+router.get("/logout", (req, res, next) => {
+  //req.logOut() is a passport method
+  req.logOut();
+
+  req.flash("success", "successfully logged out!");
+  res.redirect("/");
+});
 
 module.exports = router;
