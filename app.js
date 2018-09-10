@@ -19,7 +19,7 @@ const passportSetup = require("./config/passport/passport-setup.js");
 
 mongoose
   .connect(
-    "mongodb://localhost/project-two",
+    "mongodb://localhost/project-platform",
     { useNewUrlParser: true }
   )
   .then(x => {
