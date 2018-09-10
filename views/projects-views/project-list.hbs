@@ -1,0 +1,15 @@
+<h2>Projects list</h2>
+
+
+<ul>
+  {{#each projectArray}}
+  <li>
+    <h3>{{this.name}}</h3>
+    <img src="{{this.pictureUrl}}" />
+    <a href="/projects/{{this._id}}"><button>See more</button></a>
+  </li>
+  {{else}}
+  <p>There is no projects yet</p>
+  <a href="/add-project">Add your amazing project</a>
+  {{/each}}
+</ul>

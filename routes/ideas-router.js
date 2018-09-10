@@ -9,7 +9,12 @@ router.get("/ideas", (req, res, next) => {
       res.redirect("/");
       return; 
     }
-    res.render("ideas-views/ideas-list.hbs");
+    Idea.find()
+    .then(result => {
+        res.locals.ideaArray = result;
+        res.render("ideas-views/ideas-list.hbs");
+    })
+    .catch(err => next(err));
 });
 
 router.get("/ideas/:ideaId", (req, res, next) => {
@@ -19,12 +24,13 @@ router.get("/ideas/:ideaId", (req, res, next) => {
       return; 
     }
 
-    const {ideaId} = request.params;
+    const { ideaId } = req.params;
 
-    Idea.findById({ideaId})
+    Idea.findById(ideaId)
     .then(ideaDoc => {
         res.locals.myIdea = ideaDoc;
         res.render("ideas-views/idea-details.hbs");
+        // res.send(ideaDoc);
     })
     .catch(err =>next(err));
     
@@ -49,6 +55,7 @@ router.post("/process-idea", (req, res, next) => {
     .then(ideaDoc => {
         req.flash("success", "Idea created successfully!");
         res.redirect("/ideas");
+        // res.send(ideaDoc);
       })
     .catch(err => next(err));
 });

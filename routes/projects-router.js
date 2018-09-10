@@ -9,7 +9,12 @@ router.get("/projects", (req, res, next) => {
       res.redirect("/");
       return; 
     }
-    res.render("projects-views/projects-list.hbs");
+    Project.find()
+    .then(result => {
+        res.locals.projectArray = result;
+        res.render("projects-views/project-list.hbs");
+    })
+    .catch(err => next(err));
 });
 
 router.get("/projects/:projectId", (req, res, next) => {
@@ -19,12 +24,12 @@ router.get("/projects/:projectId", (req, res, next) => {
       return; 
     }
     
-    const {projectId} = request.params;
+    const {projectId} = req.params;
 
-    Project.findById({projectId})
+    Project.findById(projectId)
     .then(projectDoc => {
         res.locals.myProject = projectDoc;
-        res.render("project-views/project-details.hbs");
+        res.render("projects-views/project-details.hbs");
     })
     .catch(err =>next(err));
 });
@@ -43,8 +48,8 @@ router.post("/process-project", (req, res, next) => {
     const { name, description, deadline, pictureUrl, linkUrl } = req.body;
     const user = req.user._id;
 
-    Idea.create({ name, description, deadline, pictureUrl, linkUrl, user })
-    .then(ideaDoc => {
+    Project.create({ name, description, deadline, pictureUrl, linkUrl, user })
+    .then(projectDoc => {
         req.flash("success", "Project created successfully!");
         res.redirect("/projects");
       })

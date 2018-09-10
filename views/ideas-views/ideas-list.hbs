@@ -1,0 +1,14 @@
+<h2>Ideas list</h2>
+
+<ul>
+  {{#each ideaArray}}
+  <li>
+    <h3>{{this.name}}</h3>
+    <img src="{{this.pictureUrl}}" />
+    <a href="/ideas/{{this._id}}"><button>See more</button></a>
+  </li>
+  {{else}}
+  <p>There is no ideas yet</p>
+  <a href="/add-idea">Add your amazing idea</a>
+  {{/each}}
+</ul>
