@@ -1,36 +1,39 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  fullName: { type: String, required: true },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: /^.+@.+\..+$/
+const userSchema = new Schema(
+  {
+    fullName: { type: String, required: true },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: /^.+@.+\..+$/
+    },
+    encryptedPassword: { type: String },
+    role: {
+      type: String,
+      enum: ["normal", "admin"],
+      // required: true,
+      default: "normal"
+    },
+    verified: {
+      type: String,
+      enum: ["notVerified", "verified"],
+      //required: true,
+      default: "notVerified"
+    }
   },
-  encryptedPassword: { type: String },
-  role: {
-    type: String,
-    enum: ["normal", "admin"],
-    required: true,
-    default: "normal"
-  },
-  verified: {
-    type: String,
-    enum: ["notVerified", "verified"],
-    required: true,
-    default: "notVerified"
-  }
-});
+  { timestamps: true }
+);
 
-userSchema.virtual("isAdmin").get(function() {
-  return this.role === "admin";
-});
+// userSchema.virtual("isAdmin").get(function() {
+//   return this.role === "admin";
+// });
 
-userSchema.virtual("isVerified").get(function() {
-  return this.verified === "verified";
-});
+// userSchema.virtual("isVerified").get(function() {
+//   return this.verified === "verified";
+// });
 
-const User = ("User", userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;

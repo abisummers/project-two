@@ -1,6 +1,6 @@
 //passport set up
 const passport = require("passport");
-//const User = require("../../models/user-model.js");
+const User = require("../../models/user-model.js");
 
 //serializeUser() defines what user details to save in the session
 //happens when you log in successfully
