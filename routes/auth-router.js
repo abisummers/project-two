@@ -11,10 +11,10 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/process-signup", (req, res, next) => {
-  const { fullName, email, userPassword } = req.body;
+  const { fullName, email, userPassword, course, startDate } = req.body;
   const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-  User.create({ fullName, email, encryptedPassword })
+  User.create({ fullName, email, course, encryptedPassword, startDate })
     .then(userDoc => {
       res.redirect("/");
     })
@@ -26,8 +26,8 @@ router.get("/", (req, res, next) => {
   res.render("index.hbs");
 });
 
-router.get("profile", (req, res, next) => {
-  res.render("/profile.hbs");
+router.get("/home", (req, res, next) => {
+  res.render("homepage.hbs");
 });
 
 router.post("/process-login", (req, res, next) => {
@@ -39,14 +39,13 @@ router.post("/process-login", (req, res, next) => {
         res.redirect("/index.hbs");
         return;
       }
-
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(userPassword, encryptedPassword)) {
         res.redirect("/index.hbs");
         return;
       }
       req.logIn(userDoc, () => {
-        res.redirect("/profile");
+        res.redirect("/home");
       });
     })
     .catch(err => next(err));
@@ -58,7 +57,6 @@ router.get("/logout", (req, res, next) => {
   //req.logOut() is a passport method
   req.logOut();
 
-  req.flash("success", "successfully logged out!");
   res.redirect("/");
 });
 
