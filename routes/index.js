@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const User = require("../models/user-model.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -14,7 +14,9 @@ router.get("/profile", (req, res, next) => {
     res.redirect("/");
     return;
   }
+  // res.send(currentUser);
   res.render("profile/profile.hbs");
+
 });
 
 module.exports = router;
