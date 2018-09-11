@@ -11,11 +11,12 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/process-signup", (req, res, next) => {
-  const { fullName, email, userPassword } = req.body;
+  const { fullName, email, userPassword, course, startDate } = req.body;
   const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-  User.create({ fullName, email, encryptedPassword })
+  User.create({ fullName, email, course, encryptedPassword, startDate })
     .then(userDoc => {
+      req.flash("success", "account created successfully");
       res.redirect("/");
     })
     .catch(err => next(err));
@@ -26,8 +27,8 @@ router.get("/", (req, res, next) => {
   res.render("index.hbs");
 });
 
-router.get("profile", (req, res, next) => {
-  res.render("/profile.hbs");
+router.get("/home", (req, res, next) => {
+  res.render("homepage.hbs");
 });
 
 router.post("/process-login", (req, res, next) => {
@@ -36,17 +37,19 @@ router.post("/process-login", (req, res, next) => {
   User.findOne({ email: { $eq: email } })
     .then(userDoc => {
       if (!userDoc) {
+        req.flash("error", "You must be logged in to see this page");
         res.redirect("/index.hbs");
         return;
       }
-
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(userPassword, encryptedPassword)) {
+        req.flash("error", "You must be logged in to see this page");
         res.redirect("/index.hbs");
         return;
       }
       req.logIn(userDoc, () => {
-        res.redirect("/profile");
+        req.flash("success", "you are logged in");
+        res.redirect("/home");
       });
     })
     .catch(err => next(err));
@@ -57,8 +60,7 @@ router.post("/process-login", (req, res, next) => {
 router.get("/logout", (req, res, next) => {
   //req.logOut() is a passport method
   req.logOut();
-
-  req.flash("success", "successfully logged out!");
+  req.flash("success", "logout successful");
   res.redirect("/");
 });
 

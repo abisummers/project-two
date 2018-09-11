@@ -10,18 +10,26 @@ const userSchema = new Schema(
       unique: true,
       match: /^.+@.+\..+$/
     },
+    course: {
+      type: String,
+      required: true
+    },
     encryptedPassword: { type: String },
+    verified: {
+      type: String,
+      enum: ["notVerified", "verified"],
+      //required: true,
+      default: "notVerified"
+    },
     role: {
       type: String,
       enum: ["normal", "admin"],
       // required: true,
       default: "normal"
     },
-    verified: {
+    startDate: {
       type: String,
-      enum: ["notVerified", "verified"],
-      //required: true,
-      default: "notVerified"
+      required: true
     }
   },
   { timestamps: true }
