@@ -41,8 +41,13 @@ router.get("/project-settings/:projectId", (req, res, next) => {
     res.redirect("/");
   }
   const { projectId } = req.params;
-  res.locals.projectId = projectId;
-  res.render("projects-views/project-settings.hbs");
+
+  Project.findById(projectId)
+    .then(projectDoc => {
+      res.locals.myProject = projectDoc;
+      res.render("projects-views/project-settings.hbs");
+    })
+    .catch(err => next(err));
 });
 
 router.post("/process-project-settings/:projectId", (req, res, next) => {
