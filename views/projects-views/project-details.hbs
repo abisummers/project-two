@@ -11,6 +11,24 @@
 <a href="/project-settings/{{myProject._id}}">EDIT</a>
 <a href="/projects/{{myProject._id}}/delete">DELETE</a>
 
+<section>
+<form action="/projects/{{myProject._id}}/process-comment" method="POST">
+<input type="text" name="content" placeholder="Any feedback on this project?" />
+<button>Save your comment</button>
+</form>
+
+<ul>
+    {{#each commentArray}}
+    <li>
+        <p><b>{{this.author.fullName}}</b> says:</p>
+        <p>{{this.content}}</p>
+    </li>
+    {{else}}
+    <li>No reviews yet. Be the first to write one!</li>
+    {{/each}}
+</ul>
+</section>
+
 <h3>User</h3>
 <p>{{myProject.user.fullName}}</p>
 <p>{{myProject.user.email}}</p>
