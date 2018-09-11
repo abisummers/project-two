@@ -3,6 +3,7 @@ const router = express.Router();
 const Project = require("../models/project-model.js");
 const User = require("../models/user-model.js");
 
+//-------------------PROJECT LIST PAGE ----------------------
 
 router.get("/projects", (req, res, next) => {
   if (!req.user) {
@@ -18,6 +19,8 @@ router.get("/projects", (req, res, next) => {
     .catch(err => next(err));
 });
 
+//-------------------PROJECT DETAIL PAGE ----------------------
+
 router.get("/projects/:projectId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page");
@@ -30,11 +33,13 @@ router.get("/projects/:projectId", (req, res, next) => {
   Project.findById(projectId)
     .populate("user")
     .then(projectDoc => {
-      res.locals.myProject = projectDoc;      
+      res.locals.myProject = projectDoc;
       res.render("projects-views/project-details.hbs");
     })
     .catch(err => next(err));
 });
+
+//---------------------ADD A PROJECT ---------------------
 
 router.get("/add-project", (req, res, next) => {
   if (!req.user) {
