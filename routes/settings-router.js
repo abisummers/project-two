@@ -35,26 +35,33 @@ router.post("/process-profile-settings", (req, res, next) => {
 
 //------------------EDIT PROJECTS -----------------------
 
-router.get("/project-settings/", (req, res, next) => {
+router.get("/project-settings/:projectId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "you must be logged in to see this page");
     res.redirect("/");
   }
+  const { projectId } = req.params;
+  res.locals.projectId = projectId;
   res.render("projects-views/project-settings.hbs");
 });
 
 router.post("/process-project-settings/:projectId", (req, res, next) => {
-  const { projectId } = req.params;
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page");
     res.redirect("/");
     return;
   }
-
+  const { projectId } = req.params;
   const { name, description, deadline, pictureUrl, linkUrl } = req.body;
 
-  Project.findById(projectId)
-    .then(projectDoc => {})
+  Project.findByIdAndUpdate(
+    projectId,
+    { $set: { name, description, deadline, pictureUrl, linkUrl } },
+    { runValidators: true }
+  )
+    .then(projectDoc => {
+      res.redirect(`/projects/${projectId}`);
+    })
     .catch(err => next(err));
 });
 
