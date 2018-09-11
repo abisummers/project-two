@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Idea = require("../models/idea-model.js");
 
+//------------------------------IDEA LIST ------------------------
+
 router.get("/ideas", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page");
@@ -15,6 +17,8 @@ router.get("/ideas", (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+//------------------------DETAIL PAGE -----------------------------
 
 router.get("/ideas/:ideaId", (req, res, next) => {
   if (!req.user) {
@@ -33,6 +37,8 @@ router.get("/ideas/:ideaId", (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+//------------------------------ADD ITEMS -----------------------
 
 router.get("/add-idea", (req, res, next) => {
   if (!req.user) {
