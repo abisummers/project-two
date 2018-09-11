@@ -78,8 +78,13 @@ router.get("/idea-settings/:ideaId", (req, res, next) => {
     res.redirect("/");
   }
   const { ideaId } = req.params;
-  res.locals.ideaId = ideaId;
-  res.render("ideas-views/idea-settings.hbs");
+
+  Idea.findById(ideaId)
+    .then(ideaDoc => {
+      res.locals.myIdea = ideaDoc;
+      res.render("ideas-views/idea-settings.hbs");
+    })
+    .catch(err => next(err));
 });
 
 router.post("/process-idea-settings/:ideaId", (req, res, next) => {

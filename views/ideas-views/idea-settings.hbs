@@ -2,28 +2,28 @@
 
 <h3>EDIT IDEA</h3>
 
-<form action="/process-idea-settings/{{ideaId}}" method="POST">
+<form action="/process-idea-settings/{{myIdea._id}}" method="POST">
   <label>
     Name*:
-    <input type="text" name="name" placeholder="Name of your idea" />
+    <input type="text" name="name" value="{{myIdea.name}}" placeholder="Name of your idea" />
   </label>
   <br />
 
   <label>
     Description*:
-    <input type="text" name="description" placeholder="Tell us about this amazing idea" />
+    <input type="text" name="description" value="{{myIdea.description}}" placeholder="Tell us about this amazing idea" />
   </label>
   <br />
 
   <label>
     Deadline:
-    <input type="date" name="deadline" placeholder="What's your deadline" />
+    <input type="date" name="deadline" value="{{myIdea.deadline}}" placeholder="What's your deadline" />
   </label>
   <br />
 
   <label>
     Picture URL:
-    <input type="url" name="pictureUrl" placeholder="http://example.com" />
+    <input type="url" name="pictureUrl" value="{{myIdea.pictureUrl}}" placeholder="http://example.com" />
   </label>
   <br />
 
