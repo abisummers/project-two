@@ -51,11 +51,22 @@ router.post("/process-project", (req, res, next) => {
 
   Project.create({ name, description, deadline, pictureUrl, linkUrl, user })
     .then(projectDoc => {
-      const { _id } = ideaDoc;
+      const { _id } = projectDoc;
       req.flash("success", "Project created successfully!");
       res.redirect(`/projects/${_id}`);
     })
     .catch(err => next(err));
+});
+
+
+router.get("/projects/:projectId/delete", (req, res,next)=> {
+  const { projectId } = req.params;
+
+  Project.findByIdAndRemove(projectId)
+  .then(projectDoc => {
+    res.redirect("/projects");
+  })
+  .catch(err => next(err));
 });
 
 module.exports = router;

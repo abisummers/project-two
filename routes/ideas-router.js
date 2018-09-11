@@ -64,4 +64,16 @@ router.post("/process-idea", (req, res, next) => {
     .catch(err => next(err));
 });
 
+
+router.get("/ideas/:ideaId/delete", (req, res,next)=> {
+  const { ideaId } = req.params;
+
+  Idea.findByIdAndRemove(ideaId)
+  .then(ideaDoc => {
+    res.redirect("/ideas");
+  })
+  .catch(err => next(err));
+});
+
+
 module.exports = router;
