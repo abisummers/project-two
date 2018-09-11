@@ -22,7 +22,7 @@ const userSchema = new Schema(
     },
     encryptedPassword: { type: String },
     verified: {
-      type: boolean,
+      type: Boolean,
       default: false
     },
     role: {
