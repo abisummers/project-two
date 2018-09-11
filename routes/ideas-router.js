@@ -30,6 +30,7 @@ router.get("/ideas/:ideaId", (req, res, next) => {
   const { ideaId } = req.params;
 
   Idea.findById(ideaId)
+    .populate("user")
     .then(ideaDoc => {
       res.locals.myIdea = ideaDoc;
       res.render("ideas-views/idea-details.hbs");

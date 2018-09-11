@@ -7,10 +7,10 @@
 <p>{{myProject.description}}</p>
 <p>User Deadline: {{myProject.deadline}}</p>
 
-<p>User ID:{{myProject.user}}</p>
-
 
 <a href="/project-settings/{{myProject._id}}">EDIT</a>
 
-
-<p>{{myProject.user}}</p>
+<h3>User</h3>
+<p>{{myProject.user.fullName}}</p>
+<p>{{myProject.user.email}}</p>
+<p>{{myProject.user.course}}</p>

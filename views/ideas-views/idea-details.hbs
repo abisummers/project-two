@@ -7,7 +7,11 @@
 <p>{{myIdea.description}}</p>
 <p>User Deadline: {{myIdea.deadline}}</p>
 
-<p>User ID:{{myIdea.user}}</p>
-
 
 <a href="/idea-settings/{{myIdea._id}}">EDIT</a>
+
+
+<h3>User</h3>
+<p>{{myIdea.user.fullName}}</p>
+<p>{{myIdea.user.email}}</p>
+<p>{{myIdea.user.course}}</p>
