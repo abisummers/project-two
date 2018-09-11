@@ -48,8 +48,9 @@ router.post("/process-project", (req, res, next) => {
 
   Project.create({ name, description, deadline, pictureUrl, linkUrl, user })
     .then(projectDoc => {
+      const { _id } = ideaDoc;
       req.flash("success", "Project created successfully!");
-      res.redirect("/projects");
+      res.redirect(`/projects/${_id}`);
     })
     .catch(err => next(err));
 });

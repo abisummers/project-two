@@ -5,4 +5,16 @@ body {
 a {
   color: #00B7FF; }
 
+/*Flash messages*/
+[class$="-message"] {
+  border: 3px solid;
+  border-radius: 3px;
+  padding: 10px; }
+
+.success-message {
+  color: chartreuse; }
+
+.error-message {
+  color: crimson; }
+
 /*# sourceMappingURL=style.css.map */

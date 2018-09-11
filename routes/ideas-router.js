@@ -49,8 +49,9 @@ router.post("/process-idea", (req, res, next) => {
 
   Idea.create({ name, description, deadline, pictureUrl, user })
     .then(ideaDoc => {
+        const { _id } = ideaDoc;
         req.flash("success", "Idea created successfully!");
-        res.redirect("/ideas");
+        res.redirect(`/ideas/${_id}`);
         // res.send(ideaDoc);
       })
     .catch(err => next(err));

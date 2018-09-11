@@ -28,6 +28,11 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/home", (req, res, next) => {
+  if (!req.user) {
+    req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
   res.render("homepage.hbs");
 });
 
@@ -38,13 +43,13 @@ router.post("/process-login", (req, res, next) => {
     .then(userDoc => {
       if (!userDoc) {
         req.flash("error", "You must be logged in to see this page");
-        res.redirect("/index.hbs");
+        res.redirect("/");
         return;
       }
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(userPassword, encryptedPassword)) {
         req.flash("error", "You must be logged in to see this page");
-        res.redirect("/index.hbs");
+        res.redirect("/");
         return;
       }
       req.logIn(userDoc, () => {
