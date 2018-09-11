@@ -101,4 +101,8 @@ app.use("/", projectRouter);
 const authRouter = require("./routes/auth-router");
 app.use("/", authRouter);
 
+//route for settings. (profile, projects and ideas)
+const settingsRouter = require(".routes/settings-router");
+app.use("/", settingsRouter);
+
 module.exports = app;
