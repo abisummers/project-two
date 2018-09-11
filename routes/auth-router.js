@@ -16,6 +16,7 @@ router.post("/process-signup", (req, res, next) => {
 
   User.create({ fullName, email, course, encryptedPassword, startDate })
     .then(userDoc => {
+      req.flash("success", "account created successfully");
       res.redirect("/");
     })
     .catch(err => next(err));
@@ -36,15 +37,18 @@ router.post("/process-login", (req, res, next) => {
   User.findOne({ email: { $eq: email } })
     .then(userDoc => {
       if (!userDoc) {
+        req.flash("error", "You must be logged in to see this page");
         res.redirect("/index.hbs");
         return;
       }
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(userPassword, encryptedPassword)) {
+        req.flash("error", "You must be logged in to see this page");
         res.redirect("/index.hbs");
         return;
       }
       req.logIn(userDoc, () => {
+        req.flash("success", "you are logged in");
         res.redirect("/home");
       });
     })
@@ -56,7 +60,7 @@ router.post("/process-login", (req, res, next) => {
 router.get("/logout", (req, res, next) => {
   //req.logOut() is a passport method
   req.logOut();
-
+  req.flash("success", "logout successful");
   res.redirect("/");
 });
 
