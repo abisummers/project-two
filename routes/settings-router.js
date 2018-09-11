@@ -67,22 +67,35 @@ router.post("/process-project-settings/:projectId", (req, res, next) => {
 
 //-----------------------EDIT IDEAS -------------------------
 
-router.get("/idea-settings", (req, res, next) => {
+router.get("/idea-settings/:ideaId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "you must be logged in to see this page");
     res.redirect("/");
-    return;
   }
+  const { ideaId } = req.params;
+  res.locals.ideaId = ideaId;
   res.render("ideas-views/idea-settings.hbs");
 });
 
 router.post("/process-idea-settings/:ideaId", (req, res, next) => {
   if (!req.user) {
-    req.flash("error", "You must be logged in to see this page");
+    req.flash("error", "you must be logged in to see this page");
     res.redirect("/");
     return;
   }
-  const { projectId } = req.params;
+
+  const { ideaId } = req.params;
+  const { name, description, deadline, pictureUrl } = req.body;
+
+  Idea.findByIdAndUpdate(
+    ideaId,
+    { $set: { name, description, deadline, pictureUrl } },
+    { runValidators: true }
+  )
+    .then(ideaDoc => {
+      res.redirect(`/ideas/${ideaId}`);
+    })
+    .catch(err => next(err));
 });
 
 module.exports = router;
