@@ -1,0 +1,39 @@
+<h1>PROJECT SETTINGS</h1>
+
+<h3>EDIT YOUR PROJECT</h3>
+
+<form action="/process-project-settings" method="POST">
+
+  {{!-- to add a value to all fields --}}
+  <label>
+    Name*:
+    <input type="text" value="" name="name" placeholder="Name of your project" />
+  </label>
+  <br />
+
+  <label>
+    Description*:
+    <input type="text" value="" name="description" placeholder="Tell us about this amazing project" />
+  </label>
+  <br />
+
+  <label>
+    Deadline:
+    <input type="date" value="" name="deadline" placeholder="What's your deadline" />
+  </label>
+  <br />
+
+  <label>
+    Picture URL:
+    <input type="url" value="" name="pictureUrl" placeholder="http://example.com" />
+  </label>
+  <br />
+
+  <label>
+    Link URL:
+    <input type="url" value="" name="linkUrl" placeholder="http://example.com" />
+  </label>
+  <br />
+
+  <button>Save your project</button>
+</form>

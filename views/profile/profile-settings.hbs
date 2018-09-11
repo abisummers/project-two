@@ -5,32 +5,33 @@
 <form action="/process-profile-settings" method="POST">
 
   <label>Full Name
-    <input type="text" name="fullName">
+    <input type="text" value="{{currentUser.fullName}}" name="fullName">
   </label>
   <br>
 
   <label>Email
-    <input type="email" name="email">
+    <input type="email" value="{{currentUser.email}}" name="email">
   </label>
   <br>
 
 
   <label>Password
-    <input type="password" name="userPassword">
+    <input type="password" value="password" name="userPassword">
   </label>
   <br>
 
   <label>
-    <select name="course">
+    <select value="{{currentUser.course}}" name="course">
       <option>Web Dev</option>
       <option>UX</option>
       <option>Teacher/TA</option>
+      <option>Recruiter</option>
     </select>
   </label>
   <br>
 
   <label>Start Date
-    <input type="text" name="startDate" placeholder="August 2018">
+    <input type="text" value="{{currentUser.startDate}}" name="startDate" placeholder="August 2018">
   </label>
   <br>
 

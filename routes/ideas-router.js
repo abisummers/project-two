@@ -3,15 +3,15 @@ const router = express.Router();
 const Idea = require("../models/idea-model.js");
 
 router.get("/ideas", (req, res, next) => {
-    if (!req.user) {
-      req.flash("error", "You must be logged in to see this page");
-      res.redirect("/");
-      return; 
-    }
-    Idea.find()
+  if (!req.user) {
+    req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
+  Idea.find()
     .then(result => {
-        res.locals.ideaArray = result;
-        res.render("ideas-views/ideas-list.hbs");
+      res.locals.ideaArray = result;
+      res.render("ideas-views/ideas-list.hbs");
     })
     .catch(err => next(err));
 });
@@ -23,13 +23,13 @@ router.get("/ideas/:ideaId", (req, res, next) => {
     return;
   }
 
-    const { ideaId } = req.params;
+  const { ideaId } = req.params;
 
-    Idea.findById(ideaId)
+  Idea.findById(ideaId)
     .then(ideaDoc => {
-        res.locals.myIdea = ideaDoc;
-        res.render("ideas-views/idea-details.hbs");
-        // res.send(ideaDoc);
+      res.locals.myIdea = ideaDoc;
+      res.render("ideas-views/idea-details.hbs");
+      // res.send(ideaDoc);
     })
     .catch(err => next(err));
 });
@@ -49,11 +49,11 @@ router.post("/process-idea", (req, res, next) => {
 
   Idea.create({ name, description, deadline, pictureUrl, user })
     .then(ideaDoc => {
-        const { _id } = ideaDoc;
-        req.flash("success", "Idea created successfully!");
-        res.redirect(`/ideas/${_id}`);
-        // res.send(ideaDoc);
-      })
+      const { _id } = ideaDoc;
+      req.flash("success", "Idea created successfully!");
+      res.redirect(`/ideas/${_id}`);
+      // res.send(ideaDoc);
+    })
     .catch(err => next(err));
 });
 
