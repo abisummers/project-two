@@ -3,7 +3,7 @@
 
 <h3>Add your idea</h3>
 
-<form action="/process-idea" method="POST">
+<form action="/process-idea" method="POST" enctype="multipart/form-data" />
   <label>
     Name*:
     <input type="text" name="name" placeholder="Name of your idea" />
@@ -23,8 +23,8 @@
   <br />
 
   <label>
-    Picture URL:
-    <input type="url" name="pictureUrl" placeholder="http://example.com" />
+    Picture:
+    <input type="file" name="imageUpload" />
   </label>
   <br />
 

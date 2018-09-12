@@ -3,7 +3,7 @@
 
 <h3>Add your project</h3>
 
-<form action="/process-project" method="POST">
+<form action="/process-project" method="POST" enctype="multipart/form-data" / >
   <label>
     Name*:
     <input type="text" name="name" placeholder="Name of your project" />
@@ -23,10 +23,12 @@
   <br />
 
   <label>
-    Picture URL:
-    <input type="url" name="pictureUrl" placeholder="http://example.com" />
+    Picture:
+    <input type="file" name="imageUpload" />
   </label>
   <br />
+    
+  
 
   <label>
     Link URL:

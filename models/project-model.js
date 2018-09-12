@@ -6,7 +6,10 @@ const projectSchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   deadline: { type: Date },
-  pictureUrl: { type: String },
+  picture: { 
+    type: String,
+    default: "https://i.giphy.com/media/nGMnDqebzDcfm/giphy.webp"
+  },
   linkUrl: { type: String },
   author: {
     type: Schema.Types.ObjectId,

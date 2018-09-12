@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Idea = require("../models/idea-model.js");
+const fileUploader = require("../config/file-uploader.js");
 
 //------------------------------IDEA LIST ------------------------
 
@@ -39,7 +40,7 @@ router.get("/ideas/:ideaId", (req, res, next) => {
     .catch(err => next(err));
 });
 
-//------------------------------ADD ITEMS -----------------------
+//------------------------------ADD IDEA -----------------------
 
 router.get("/add-idea", (req, res, next) => {
   if (!req.user) {
@@ -50,11 +51,15 @@ router.get("/add-idea", (req, res, next) => {
   res.render("ideas-views/idea-form.hbs");
 });
 
-router.post("/process-idea", (req, res, next) => {
-  const { name, description, deadline, pictureUrl } = req.body;
+router.post("/process-idea", fileUploader.single("imageUpload"), (req, res, next) => {
+  const { name, description, deadline } = req.body;
   const author = req.user._id;
+  let picture;
+    if (req.file) {
+      picture = req.file.secure_url;
+    }
 
-  Idea.create({ name, description, deadline, pictureUrl, author })
+  Idea.create({ name, description, deadline, picture, author })
     .then(ideaDoc => {
       const { _id } = ideaDoc;
       req.flash("success", "Idea created successfully!");
@@ -65,6 +70,7 @@ router.post("/process-idea", (req, res, next) => {
 });
 
 
+//------------------------------DELETE IDEA -----------------------
 router.get("/ideas/:ideaId/delete", (req, res,next)=> {
   const { ideaId } = req.params;
 
