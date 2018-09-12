@@ -39,9 +39,9 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-// userSchema.virtual("isAdmin").get(function() {
-//   return this.role === "admin";
-// });
+userSchema.virtual("isAdmin").get(function() {
+  return this.role === "admin";
+});
 
 // userSchema.virtual("isVerified").get(function() {
 //   return this.verified === "verified";

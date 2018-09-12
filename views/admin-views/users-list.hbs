@@ -1,0 +1,17 @@
+<h2>Admin Zone</h2>
+
+<h3>User List</h3>
+
+<ul>
+  {{#each userArray}}
+  <li>
+    <h4>{{this.fullName}}</h4>
+    <ul>
+      <li>Email: {{this.email}}</li>
+      <li>Registered: {{this.createdAt}}</li>
+      <li>Role: {{this.role}}</li>
+      <li><img src="{{this.avatar}}" alt="profile pic" height="100px"/></li>
+    </ul>
+  </li>
+  {{/each}}
+</ul>

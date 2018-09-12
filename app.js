@@ -88,10 +88,14 @@ app.use((req, res, next) => {
 // default value for title local
 app.locals.title = "Ironhack Portal";
 
+
+
+//-------------------------------ROUTES-------------------------------------------
 //contains the route to the profile page
 const index = require("./routes/index");
 app.use("/", index);
 
+//routes for ideas and projects
 const ideaRouter = require("./routes/ideas-router");
 app.use("/", ideaRouter);
 
@@ -105,5 +109,9 @@ app.use("/", authRouter);
 //route for settings. (profile, projects and ideas)
 const settingsRouter = require("./routes/settings-router");
 app.use("/", settingsRouter);
+
+//route for admin
+const adminRouter = require("./routes/admin-router");
+app.use("/", adminRouter);
 
 module.exports = app;

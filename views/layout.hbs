@@ -21,6 +21,9 @@
         <a href="/ideas">Ideas</a>
         <a href="/profile">Profile</a>
         <a href="/logout">Log Out</a>
+        {{#if currentUser.isAdmin}}
+        <a href="/admin/users">User Management</a>
+      {{/if}}  
       {{else}}
         <a href="/">Login</a>
         <a href="/signup">Sign up</a>
