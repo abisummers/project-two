@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user-model.js");
 const passport = require("passport");
 const router = express.Router();
-const fileUploader = require("../config/file-uploader");
+const fileUploader = require("../config/file-uploader.js");
 
 //---------------------SIGN UP -----------------------------
 
@@ -25,9 +25,9 @@ router.post(
     } = req.body;
     const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-    let image;
+    let avatar;
     if (req.file) {
-      image = req.file.secure_url;
+      avatar = req.file.secure_url;
     }
 
     User.create({
@@ -36,7 +36,7 @@ router.post(
       course,
       encryptedPassword,
       startDate,
-      image,
+      avatar,
       aboutUser
     })
       .then(userDoc => {
