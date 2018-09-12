@@ -8,7 +8,7 @@ const projectSchema = new Schema({
   deadline: { type: Date },
   pictureUrl: { type: String },
   linkUrl: { type: String },
-  user: {
+  author: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,

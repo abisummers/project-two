@@ -30,11 +30,11 @@ router.get("/ideas/:ideaId", (req, res, next) => {
   const { ideaId } = req.params;
 
   Idea.findById(ideaId)
-    .populate("user")
+    .populate("author")
     .then(ideaDoc => {
       res.locals.myIdea = ideaDoc;
       res.render("ideas-views/idea-details.hbs");
-      // res.send(ideaDoc);
+      // res.send(ideaDoc.author);
     })
     .catch(err => next(err));
 });
@@ -52,9 +52,9 @@ router.get("/add-idea", (req, res, next) => {
 
 router.post("/process-idea", (req, res, next) => {
   const { name, description, deadline, pictureUrl } = req.body;
-  const user = req.user._id;
+  const author = req.user._id;
 
-  Idea.create({ name, description, deadline, pictureUrl, user })
+  Idea.create({ name, description, deadline, pictureUrl, author })
     .then(ideaDoc => {
       const { _id } = ideaDoc;
       req.flash("success", "Idea created successfully!");

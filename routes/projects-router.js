@@ -32,7 +32,7 @@ router.get("/projects/:projectId", (req, res, next) => {
   const { projectId } = req.params;
 
   Project.findById(projectId)
-    .populate("user")
+    .populate("author")
     .then(projectDoc => {
       res.locals.myProject = projectDoc;
       Comment.find({project: projectId})
@@ -59,9 +59,9 @@ router.get("/add-project", (req, res, next) => {
 
 router.post("/process-project", (req, res, next) => {
   const { name, description, deadline, pictureUrl, linkUrl } = req.body;
-  const user = req.user._id;
+  const author = req.user._id;
 
-  Project.create({ name, description, deadline, pictureUrl, linkUrl, user })
+  Project.create({ name, description, deadline, pictureUrl, linkUrl, author })
     .then(projectDoc => {
       const { _id } = projectDoc;
       req.flash("success", "Project created successfully!");

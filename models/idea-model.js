@@ -7,7 +7,7 @@ const ideaSchema = new Schema({
   description: { type: String, required: true },
   deadline: { type: Date },
   pictureUrl: { type: String },
-  user: {
+  author: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
