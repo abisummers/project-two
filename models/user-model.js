@@ -23,7 +23,7 @@ const userSchema = new Schema(
     encryptedPassword: { type: String },
     verified: {
       type: Boolean,
-      default: true
+      default: false
     },
     role: {
       type: String,

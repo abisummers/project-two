@@ -2,6 +2,12 @@
 
 {{>flash_messages}}
 
+{{#if currentUser.isAdmin}}
+<div>
+<p>You have X users to verify</p>
+<a href="/admin/non-verified-users"></a><button>Verify users</button>
+</div>
+{{/if}}
 
 <div class="home-buttons home-button-text">
   <a href="/ideas">IDEAS</a>
