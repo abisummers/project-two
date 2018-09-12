@@ -41,25 +41,6 @@ const userData = [
   }
 ];
 
-const projectData = [
-  {
-    name: "Spacetaker",
-    description: "A spaceship that takes cows from earth",
-    deadline: "14/09/2018",
-    pictureUrl: "https://media.giphy.com/media/26BoCVdjSJOWT0Fpu/giphy.gif",
-    linkUrl: "",
-    author: {}
-  },
-  {
-    name: "",
-    description: "",
-    deadline: " ",
-    pictureUrl: "",
-    linkUrl: "",
-    author: {}
-  }
-];
-
 User.create(userData)
   .then(userResult => {
     console.log(`created ${userResult.length} users`);
