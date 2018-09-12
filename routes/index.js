@@ -7,6 +7,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+//-----------------------------PROFILE--------------------------------------------------
 //link to profile
 router.get("/profile", (req, res, next) => {
   if (!req.user) {
@@ -14,8 +15,20 @@ router.get("/profile", (req, res, next) => {
     res.redirect("/");
     return;
   }
-  // res.send(currentUser);
   res.render("profile/profile.hbs");
 });
+
+
+//Delete profile
+router.get("/profile/:profileId/delete", (req, res,next)=> {
+  const { profileId } = req.params;
+
+  User.findByIdAndRemove(profileId)
+  .then(profileDoc => {
+    res.redirect("/admin/users");
+  })
+  .catch(err => next(err));
+});
+
 
 module.exports = router;
