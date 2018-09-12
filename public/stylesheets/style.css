@@ -1,10 +1,3 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
-a {
-  color: #00B7FF; }
-
 /*Flash messages*/
 [class$="-message"] {
   border: 3px solid;
@@ -16,5 +9,37 @@ a {
 
 .error-message {
   color: crimson; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  text-align: center; }
+
+.home-buttons {
+  text-align: center;
+  margin-top: 30px;
+  border: 2px black solid; }
+
+.home-button-text {
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: blue; }
+
+@media (min-width: 450px) {
+  nav {
+    background-color: #2d62d7;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  nav a,
+  nav b {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase; } }
 
 /*# sourceMappingURL=style.css.map */

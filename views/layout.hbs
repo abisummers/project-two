@@ -13,22 +13,37 @@
 
 
   <header>
+
+
     <nav>
-      {{#if currentUser.verified}}
+      <div>
+        <a href="/home">IRONHACK PROJECT</a>
+      </div>
+
+      <div>
+        {{#if currentUser.verified}}
         <b>Hi, {{currentUser.fullName}}</b>
+        {{/if}}
+      </div>
+
+      <div>
+        {{#if currentUser.verified}}
         <a href="/home">Home</a>
         <a href="/projects">Projects</a>
         <a href="/ideas">Ideas</a>
         <a href="/profile">Profile</a>
         <a href="/logout">Log Out</a>
+
         {{#if currentUser.isAdmin}}
         <a href="/admin/users">User Management</a>
-      {{/if}}  
-      {{else}}
+        {{/if}}
+        {{else}}
         <a href="/">Login</a>
         <a href="/signup">Sign up</a>
-      {{/if}}
+        {{/if}}
+      </div>
     </nav>
+    <a href="#main-menu-toggle" class="backdrop" hidden></a>
   </header>
 
   {{{body}}}

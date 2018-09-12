@@ -81,22 +81,26 @@ router.get("/add-project", (req, res, next) => {
   res.render("projects-views/project-form.hbs");
 });
 
-router.post("/process-project", fileUploader.single("imageUpload"), (req, res, next) => {
-  const { name, description, deadline, linkUrl } = req.body;
-  const author = req.user._id;
-  let picture;
+router.post(
+  "/process-project",
+  fileUploader.single("imageUpload"),
+  (req, res, next) => {
+    const { name, description, deadline, linkUrl } = req.body;
+    const author = req.user._id;
+    let picture;
     if (req.file) {
       picture = req.file.secure_url;
     }
 
-  Project.create({ name, description, deadline, picture, linkUrl, author })
-    .then(projectDoc => {
-      const { _id } = projectDoc;
-      req.flash("success", "Project created successfully!");
-      res.redirect(`/projects/${_id}`);
-    })
-    .catch(err => next(err));
-});
+    Project.create({ name, description, deadline, picture, linkUrl, author })
+      .then(projectDoc => {
+        const { _id } = projectDoc;
+        req.flash("success", "Project created successfully!");
+        res.redirect(`/projects/${_id}`);
+      })
+      .catch(err => next(err));
+  }
+);
 
 //------------------DELETE PROJECT-------------------------------------
 router.get("/projects/:projectId/delete", (req, res, next) => {
@@ -111,7 +115,7 @@ router.get("/projects/:projectId/delete", (req, res, next) => {
     res.redirect("/");
     return;
   }
-  
+
   const { projectId } = req.params;
 
   Project.findByIdAndRemove(projectId)
