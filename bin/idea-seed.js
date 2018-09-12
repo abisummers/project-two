@@ -18,12 +18,20 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-const userData = [
+const ideaData = [
   {
-    fullName: "a",
-    email: "a@a.a",
-    encryptedPassword: bcrypt.hashSync("a", 10),
-    role: "admin"
+    name: "Funky shapes",
+    description: "To create a website with this effect",
+    deadline: " ",
+    pictureUrl: "https://media.giphy.com/media/MvovQGsMBY9H2/giphy.gif",
+    author: {}
+  },
+  {
+    name: "",
+    description: "",
+    deadline: " ",
+    pictureUrl: "https://media.giphy.com/media/hS3ESVXKy595K/giphy.gif",
+    author: {}
   }
 ];
 

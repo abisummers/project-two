@@ -36,13 +36,16 @@ router.get("/projects/:projectId", (req, res, next) => {
     .populate("author")
     .then(projectDoc => {
       res.locals.myProject = projectDoc;
-      Comment.find({project: projectId})
-      .populate("author")
-      .then( commentList => {
-        res.locals.commentArray = commentList
-        res.render("projects-views/project-details.hbs");
-      })
-      .catch(err => next(err)); 
+      res.locals.isOwner =
+        req.user._id.toString() === projectDoc.author._id.toString();
+
+      Comment.find({ project: projectId })
+        .populate("author")
+        .then(commentList => {
+          res.locals.commentArray = commentList;
+          res.render("projects-views/project-details.hbs");
+        })
+        .catch(err => next(err));
     })
     .catch(err => next(err));
 });
@@ -76,32 +79,27 @@ router.post("/process-project", fileUploader.single("imageUpload"), (req, res, n
 });
 
 //------------------DELETE PROJECT-------------------------------------
-router.get("/projects/:projectId/delete", (req, res,next)=> {
+router.get("/projects/:projectId/delete", (req, res, next) => {
   const { projectId } = req.params;
 
   Project.findByIdAndRemove(projectId)
-  .then(projectDoc => {
-    res.redirect("/projects");
-  })
-  .catch(err => next(err));
+    .then(projectDoc => {
+      res.redirect("/projects");
+    })
+    .catch(err => next(err));
 });
-
-
 
 //---------------------ADD A COMMENT---------------------------------
-router.post("/projects/:projectId/process-comment", (req, res,next)=> {
-const { content } = req.body;
-const author = req.user._id;
-const project = req.params.projectId;
+router.post("/projects/:projectId/process-comment", (req, res, next) => {
+  const { content } = req.body;
+  const author = req.user._id;
+  const project = req.params.projectId;
 
-  Comment.create({author, content, project})
-  .then(commentDoc => {
-    res.redirect(`/projects/${project}`);
-  })
-  .catch(err => next(err));
+  Comment.create({ author, content, project })
+    .then(commentDoc => {
+      res.redirect(`/projects/${project}`);
+    })
+    .catch(err => next(err));
 });
-
-
-
 
 module.exports = router;
