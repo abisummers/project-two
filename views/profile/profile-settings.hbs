@@ -2,7 +2,7 @@
 
 <h2>EDIT</h2>
 
-<form action="/process-profile-settings" method="POST">
+<form action="/process-profile-settings" method="POST" enctype="multipart/form-data">
 
   <label>Full Name
     <input type="text" value="{{currentUser.fullName}}" name="fullName">
@@ -17,6 +17,16 @@
 
   <label>Password
     <input type="password" value="password" name="userPassword">
+  </label>
+  <br>
+
+  <label>
+    <input type="file" value="{{currentUser.avatar}}" name="imageUpload">
+  </label>
+  <br>
+
+  <label>About
+    <input type="text" name="aboutUser" value="{{currentUser.aboutUser}}" placeholder="tell us about you">
   </label>
   <br>
 
