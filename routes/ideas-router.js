@@ -33,6 +33,8 @@ router.get("/ideas/:ideaId", (req, res, next) => {
     .populate("author")
     .then(ideaDoc => {
       res.locals.myIdea = ideaDoc;
+      res.locals.isOwner =
+        req.user._id.toString() === ideaDoc.author._id.toString();
       res.render("ideas-views/idea-details.hbs");
       // res.send(ideaDoc.author);
     })
@@ -64,16 +66,14 @@ router.post("/process-idea", (req, res, next) => {
     .catch(err => next(err));
 });
 
-
-router.get("/ideas/:ideaId/delete", (req, res,next)=> {
+router.get("/ideas/:ideaId/delete", (req, res, next) => {
   const { ideaId } = req.params;
 
   Idea.findByIdAndRemove(ideaId)
-  .then(ideaDoc => {
-    res.redirect("/ideas");
-  })
-  .catch(err => next(err));
+    .then(ideaDoc => {
+      res.redirect("/ideas");
+    })
+    .catch(err => next(err));
 });
-
 
 module.exports = router;

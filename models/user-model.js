@@ -23,12 +23,12 @@ const userSchema = new Schema(
     encryptedPassword: { type: String },
     verified: {
       type: Boolean,
-      default: false
+      default: true
     },
     role: {
       type: String,
       enum: ["normal", "admin"],
-      // required: true,
+      required: true,
       default: "normal"
     },
     startDate: {

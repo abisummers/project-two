@@ -9,13 +9,13 @@
 
 
 
-{{!-- if user is not the owner, hide edit section --}}
-{{!-- {{#if }} --}}
-{{!-- {{/if}} --}}
+{{#if isOwner}}
 
 <a href="/project-settings/{{myProject._id}}">EDIT</a>
 <a href="/projects/{{myProject._id}}/delete">DELETE</a>
 
+
+{{/if}}
 <section>
   <form action="/projects/{{myProject._id}}/process-comment" method="POST">
     <input type="text" name="content" placeholder="Any feedback on this project?" />
