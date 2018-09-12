@@ -20,12 +20,9 @@ const projectSchema = new Schema(
   }
 );
 
-projectSchema.virtual("isAdmin").get(function() {
-  return this._id === currentUser.id;
-});
-
-// userSchema.virtual("isAdmin").get(function() {
-//   return this.role === "admin";
+// projectSchema.virtual("isAdmin").get(function() {
+//   return this._id === currentUser.id;
 // });
+
 const Project = mongoose.model("Project", projectSchema);
 module.exports = Project;
