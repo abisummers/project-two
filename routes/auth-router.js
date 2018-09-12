@@ -4,6 +4,7 @@ const User = require("../models/user-model.js");
 const passport = require("passport");
 const router = express.Router();
 const fileUploader = require("../config/file-uploader.js");
+const { sendSignupMail } = require("../config/nodemailer-setup.js");
 
 //---------------------SIGN UP -----------------------------
 
@@ -30,7 +31,7 @@ router.post(
       avatar = req.file.secure_url;
     }
 
-    User.create({
+    User.create({ 
       fullName,
       email,
       course,
@@ -40,8 +41,12 @@ router.post(
       aboutUser
     })
       .then(userDoc => {
-        req.flash("success", "account created successfully");
-        res.redirect("/");
+        sendSignupMail(userDoc)
+          .then(() => {
+          req.flash("success", "account created successfully");
+          res.redirect("/");
+          })
+          .catch(err => next(err));
       })
       .catch(err => next(err));
   }
