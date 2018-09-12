@@ -1,4 +1,6 @@
-/*Flash messages*/
+body {
+  height: 100vh; }
+
 [class$="-message"] {
   border: 3px solid;
   border-radius: 3px;
@@ -28,6 +30,12 @@ h1 {
   display: inline-block;
   text-decoration: none;
   color: blue; }
+
+.main-wrapper-form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center; }
 
 @media (min-width: 450px) {
   nav {
