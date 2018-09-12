@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user-model.js");
 const Project = require("../models/project-model.js");
 const Idea = require("../models/idea-model.js");
+const fileUploader = require("../config/file-uploader.js");
 
 //------------------PROFILE SETTINGS -----------------------
 
@@ -23,21 +24,47 @@ router.get("/profile-settings", (req, res, next) => {
   res.render("profile/profile-settings.hbs");
 });
 
-router.post("/process-profile-settings", (req, res, next) => {
-  const { fullName, email, userPassword, course, startDate } = req.body;
-  const encryptedPassword = bcrypt.hashSync(userPassword, 10);
+router.post(
+  "/process-profile-settings",
+  fileUploader.single("imageUpload"),
+  (req, res, next) => {
+    const {
+      fullName,
+      email,
+      userPassword,
+      course,
+      startDate,
+      aboutUser
+    } = req.body;
+    const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-  User.findByIdAndUpdate(
-    req.user._id,
-    { $set: { fullName, email, course, startDate, encryptedPassword } },
-    { runValidators: true }
-  )
-    .then(userDoc => {
-      req.flash("success", "settings saved!!");
-      res.redirect("/profile");
-    })
-    .catch(err => next(err));
-});
+    let avatar;
+    if (req.file) {
+      avatar = req.file.secure_url;
+    }
+
+    User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $set: {
+          fullName,
+          email,
+          course,
+          startDate,
+          encryptedPassword,
+          aboutUser,
+          avatar
+        }
+      },
+      { runValidators: true }
+    )
+      .then(userDoc => {
+        req.flash("success", "settings saved!!");
+        res.redirect("/profile");
+      })
+      .catch(err => next(err));
+  }
+);
 
 //------------------EDIT PROJECTS -----------------------
 

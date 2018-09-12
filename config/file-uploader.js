@@ -10,8 +10,8 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: "users-pictures"
-  // allowedFormats: ["jpg", "png"]
+  folder: "users-pictures",
+  allowedFormats: ["jpg", "png"]
 });
 
 const fileUploader = multer({ storage });
