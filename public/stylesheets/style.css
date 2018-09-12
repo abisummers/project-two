@@ -22,7 +22,7 @@ h1 {
   font-size: 25px;
   text-transform: uppercase; }
 
-h2  {
+h2  {
   font-size: 18px;
   text-transform: uppercase; }
 
@@ -42,27 +42,6 @@ footer {
   background-color: #2d62d7;
   color: white;
   text-align: center;
-  display: inline-block;
-  text-decoration: none;
-  color: blue; }
-
-.main-wrapper-form {
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  justify-content: center; }
-
-@media (min-width: 450px) {
-  nav {
-    background-color: #2d62d7;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
-  nav a,
-  nav b {
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase; } }
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */
