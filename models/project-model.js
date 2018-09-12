@@ -12,12 +12,14 @@ const projectSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
-  },
-}, {
-  timestamps: true
-});
+  }
+}, {timestamps: true
+  }
+);
 
+// projectSchema.virtual("isAdmin").get(function() {
+//   return this._id === currentUser.id;
+// });
 
 const Project = mongoose.model("Project", projectSchema);
-
-module.exports = Project; 
+module.exports = Project;

@@ -10,16 +10,20 @@ const userSchema = new Schema(
       unique: true,
       match: /^.+@.+\..+$/
     },
+    aboutUser: { type: String },
+    image: { type: String },
     course: {
       type: String,
       required: true
     },
+    avatar: {
+      type: String,
+      default: "https://media.giphy.com/media/xULW8DcQMhlZFs6baU/giphy.gif"
+    },
     encryptedPassword: { type: String },
     verified: {
-      type: String,
-      enum: ["notVerified", "verified"],
-      //required: true,
-      default: "notVerified"
+      type: Boolean,
+      default: false
     },
     role: {
       type: String,

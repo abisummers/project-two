@@ -16,7 +16,6 @@ router.get("/profile", (req, res, next) => {
   }
   // res.send(currentUser);
   res.render("profile/profile.hbs");
-
 });
 
 module.exports = router;

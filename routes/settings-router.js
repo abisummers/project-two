@@ -36,11 +36,12 @@ router.post("/process-profile-settings", (req, res, next) => {
 //------------------EDIT PROJECTS -----------------------
 
 router.get("/project-settings/:projectId", (req, res, next) => {
+  const { projectId } = req.params;
+
   if (!req.user) {
     req.flash("error", "you must be logged in to see this page");
     res.redirect("/");
   }
-  const { projectId } = req.params;
 
   Project.findById(projectId)
     .then(projectDoc => {
