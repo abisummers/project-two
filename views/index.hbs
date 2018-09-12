@@ -3,20 +3,23 @@
 {{>flash_messages}}
 
 <section>
-  <form action="/process-login" method="POST">
+  <div class="login">
+    <form action="/process-login" method="POST">
 
-    <label>Email
-      <input type="email" name="email">
-    </label>
-    <br>
+      <label>Email
+        <br>
+        <input type="email" name="email">
+      </label>
+      <br>
 
-    <label>Password
-      <input type="password" name="userPassword">
-    </label>
-    <br>
+      <label>Password
+        <br>
+        <input type="password" name="userPassword">
+      </label>
 
-    <button>SUBMIT</button>
+      <br>
+      <button>SUBMIT</button>
 
-  </form>
-
+    </form>
+  </div>
 </section>

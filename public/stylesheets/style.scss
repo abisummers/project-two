@@ -15,53 +15,43 @@
   color: crimson;
 }
 
+//----------------------GENERAL -------------------
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  height: 100vh;
+  width: 100vw;
 }
-
-//------------------------------ LAYOUT ----------------------------
-//MOBILE FIRST
-
-//to add burger menu on nav bar for mobile
 
 h1 {
-  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
 }
 
-//-----------------------------HOME PAGE -----------------------------
-
-.home-buttons {
-  text-align: center;
-  margin-top: 30px;
-  border: 2px black solid;
+h2  {
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-.home-button-text {
-  text-align: center;
-  display: inline-block;
-  text-decoration: none;
-  color: blue;
+button {
+  background-color: #2d62d7;
+  border: 1px solid #2d62d7;
+  color: white;
+  font-weight: bold;
+  padding: 4% 30%;
+  border-radius: 5px;
 }
 
-//------------------------------ DESKTOP ----------------------------
-//Additional css for desktop
-
-@media (min-width: 450px) {
-  //layout
-  nav {
-    background-color: #2d62d7;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  nav a,
-  nav b {
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+// FOOTER -------------------
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #2d62d7;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
 }
