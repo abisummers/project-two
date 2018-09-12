@@ -1,0 +1,69 @@
+//------------------------------ LAYOUT ----------------------------
+//MOBILE FIRST
+
+//to add burger menu on nav bar for mobile
+
+h1 {
+  text-align: center;
+}
+
+//LOGIN PAGE --------------
+
+.login {
+  border: black 1px solid;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.login label {
+  text-transform: uppercase;
+}
+
+.login input {
+  border: grey 1px solid;
+}
+
+.login button {
+  text-align: center;
+}
+
+//HOME PAGE -----------------------
+
+.home-buttons {
+  text-align: center;
+  border: 1px solid black;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.home-button-text a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #2d62d7;
+  width: 50%;
+  border: 1px black solid;
+  padding: 20px;
+  margin: 30px 0;
+}
+
+//-----------------------DESKTOP -------------------------
+@media (min-width: 450px) {
+  nav {
+    background-color: #2d62d7;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav a,
+  nav b {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}

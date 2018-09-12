@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/*Flash messages*/
+[class$="-message"] {
+  border: 3px solid;
+  border-radius: 3px;
+  padding: 10px; }
+
+.success-message {
+  color: chartreuse; }
+
+.error-message {
+  color: crimson; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw; }
+
+h1 {
+  font-size: 25px;
+  text-transform: uppercase; }
+
+h2  {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+button {
+  background-color: #2d62d7;
+  border: 1px solid #2d62d7;
+  color: white;
+  font-weight: bold;
+  padding: 4% 30%;
+  border-radius: 5px; }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #2d62d7;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: blue; }
+
+.main-wrapper-form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center; }
+
+@media (min-width: 450px) {
+  nav {
+    background-color: #2d62d7;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  nav a,
+  nav b {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase; } }
+
+/*# sourceMappingURL=style.css.map */
