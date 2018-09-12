@@ -16,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    image: {
+    avatar: {
       type: String,
       default: "https://media.giphy.com/media/xULW8DcQMhlZFs6baU/giphy.gif"
     },

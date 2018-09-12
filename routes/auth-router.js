@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/user-model.js");
 const passport = require("passport");
 const router = express.Router();
+const fileUploader = require("../config/file-uploader");
 
 //---------------------SIGN UP -----------------------------
 
@@ -10,17 +11,41 @@ router.get("/signup", (req, res, next) => {
   res.render("auth-views/signup-form.hbs");
 });
 
-router.post("/process-signup", (req, res, next) => {
-  const { fullName, email, userPassword, course, startDate } = req.body;
-  const encryptedPassword = bcrypt.hashSync(userPassword, 10);
+router.post(
+  "/process-signup",
+  fileUploader.single("imageUpload"),
+  (req, res, next) => {
+    const {
+      fullName,
+      email,
+      userPassword,
+      course,
+      startDate,
+      aboutUser
+    } = req.body;
+    const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-  User.create({ fullName, email, course, encryptedPassword, startDate })
-    .then(userDoc => {
-      req.flash("success", "account created successfully");
-      res.redirect("/");
+    let image;
+    if (req.file) {
+      image = req.file.secure_url;
+    }
+
+    User.create({
+      fullName,
+      email,
+      course,
+      encryptedPassword,
+      startDate,
+      image,
+      aboutUser
     })
-    .catch(err => next(err));
-});
+      .then(userDoc => {
+        req.flash("success", "account created successfully");
+        res.redirect("/");
+      })
+      .catch(err => next(err));
+  }
+);
 
 //-------------------------LOG IN -------------------------------
 router.get("/", (req, res, next) => {
