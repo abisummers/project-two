@@ -13,6 +13,13 @@ router.get("/projects", (req, res, next) => {
     res.redirect("/");
     return;
   }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   Project.find()
     .then(result => {
       res.locals.projectArray = result;
@@ -26,6 +33,12 @@ router.get("/projects", (req, res, next) => {
 router.get("/projects/:projectId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
     res.redirect("/");
     return;
   }
@@ -58,6 +71,13 @@ router.get("/add-project", (req, res, next) => {
     res.redirect("/");
     return;
   }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   res.render("projects-views/project-form.hbs");
 });
 
@@ -80,6 +100,18 @@ router.post("/process-project", fileUploader.single("imageUpload"), (req, res, n
 
 //------------------DELETE PROJECT-------------------------------------
 router.get("/projects/:projectId/delete", (req, res, next) => {
+  if (!req.user) {
+    req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+  
   const { projectId } = req.params;
 
   Project.findByIdAndRemove(projectId)

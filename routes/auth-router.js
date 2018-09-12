@@ -58,8 +58,18 @@ router.get("/home", (req, res, next) => {
     res.redirect("/");
     return;
   }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   res.render("homepage.hbs");
 });
+
+
+
 
 router.post("/process-login", (req, res, next) => {
   const { userPassword, email } = req.body;
@@ -67,13 +77,13 @@ router.post("/process-login", (req, res, next) => {
   User.findOne({ email: { $eq: email } })
     .then(userDoc => {
       if (!userDoc) {
-        req.flash("error", "You must be logged in to see this page");
+        req.flash("error", "There is no account related to this email");
         res.redirect("/");
         return;
       }
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(userPassword, encryptedPassword)) {
-        req.flash("error", "You must be logged in to see this page");
+        req.flash("error", "Your password is wrong");
         res.redirect("/");
         return;
       }

@@ -14,6 +14,12 @@ router.get("/profile-settings", (req, res, next) => {
     return;
   }
 
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   res.render("profile/profile-settings.hbs");
 });
 
@@ -43,6 +49,12 @@ router.get("/project-settings/:projectId", (req, res, next) => {
     res.redirect("/");
   }
 
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   Project.findById(projectId)
     .then(projectDoc => {
       res.locals.myProject = projectDoc;
@@ -51,12 +63,9 @@ router.get("/project-settings/:projectId", (req, res, next) => {
     .catch(err => next(err));
 });
 
+
 router.post("/process-project-settings/:projectId", (req, res, next) => {
-  if (!req.user) {
-    req.flash("error", "You must be logged in to see this page");
-    res.redirect("/");
-    return;
-  }
+
   const { projectId } = req.params;
   const { name, description, deadline, pictureUrl, linkUrl } = req.body;
 
@@ -78,6 +87,13 @@ router.get("/idea-settings/:ideaId", (req, res, next) => {
     req.flash("error", "you must be logged in to see this page");
     res.redirect("/");
   }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   const { ideaId } = req.params;
 
   Idea.findById(ideaId)
@@ -89,11 +105,6 @@ router.get("/idea-settings/:ideaId", (req, res, next) => {
 });
 
 router.post("/process-idea-settings/:ideaId", (req, res, next) => {
-  if (!req.user) {
-    req.flash("error", "you must be logged in to see this page");
-    res.redirect("/");
-    return;
-  }
 
   const { ideaId } = req.params;
   const { name, description, deadline, pictureUrl } = req.body;

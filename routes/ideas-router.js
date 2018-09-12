@@ -11,6 +11,13 @@ router.get("/ideas", (req, res, next) => {
     res.redirect("/");
     return;
   }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   Idea.find()
     .then(result => {
       res.locals.ideaArray = result;
@@ -24,6 +31,12 @@ router.get("/ideas", (req, res, next) => {
 router.get("/ideas/:ideaId", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
     res.redirect("/");
     return;
   }
@@ -50,6 +63,13 @@ router.get("/add-idea", (req, res, next) => {
     res.redirect("/");
     return;
   }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   res.render("ideas-views/idea-form.hbs");
 });
 
@@ -74,6 +94,18 @@ router.post("/process-idea", fileUploader.single("imageUpload"), (req, res, next
 
 //------------------------------DELETE IDEA -----------------------
 router.get("/ideas/:ideaId/delete", (req, res,next)=> {
+  if (!req.user) {
+    req.flash("error", "You must be logged in to see this page");
+    res.redirect("/");
+    return;
+  }
+
+  if (!req.user.verified) {
+    req.flash("error", "You must be approved by the admin to see this page");
+    res.redirect("/");
+    return;
+  }
+
   const { ideaId } = req.params;
 
   Idea.findByIdAndRemove(ideaId)
