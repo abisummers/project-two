@@ -7,14 +7,75 @@
 .main-wrapper-form {
   display: flex;
   flex-direction: column;
-  align-content: space-around;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 15%;
+  // background-color: #7E7F80;
 }
+
+
+.form-h1 {
+  margin: 15%;
+  // color: #fff;
+}
+
+.form {
+  width: 80%;
+  padding: 4%;
+  background-color: #fff;
+  box-shadow: 0 0 3px #808080;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.form-label, .form-button {
+  display: block;
+  margin-top:5%;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 95%;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
+.form-textarea {
+  height: 5rem;
+}
+
+.form-button {
+  margin: 15% 0 4%;
+}
+
+//DETAILED PAGES------------------------------------------------------
+
+
 
 //------------------------------ DESKTOP ----------------------------
 
 
 @media (min-width: 450px) {
+
+  .form-h1 {
+    margin: 6%;
+  }
+
+  .form {
+    width: 50%;
+    padding: 4% 2%;
+  }
+
+  .form-all-labels {
+    width: 80%
+  }
+
+  .form-button {
+    margin: 10% 0 2%;
+  }
+
+//DETAILED PAGES------------------------------------------------------------
 
 
 }

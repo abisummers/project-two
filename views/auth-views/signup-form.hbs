@@ -1,53 +1,45 @@
 <div class="main-wrapper-form">
-<h1>SIGN UP</h1>
+  <h1 class="form-h1">SIGN UP</h1>
 
-<div>
-<form action="/process-signup" method="POST" enctype="multipart/form-data">
+   
+    <form  class="form" action="/process-signup" method="POST" enctype="multipart/form-data">
+      <div class="form-all-labels">
+        <label class="form-label">Full Name:
+          <input class="form-input" type="text" name="fullName" placeholder=" Your Name">
+        </label>
 
-  <label>Full Name
-    <input type="text" name="fullName" placeholder=" Your Name">
-  </label>
-  <br>
+        <label class="form-label">Email:
+          <input class="form-input" type="email" name="email" placeholder="Your email address">
+        </label>
 
-  <label>Email
-    <input type="email" name="email" placeholder="Your email address">
-  </label>
-  <br>
+        <label class="form-label">Password:
+          <input class="form-input" type="password" name="userPassword" placeholder="yoursecret">
+        </label>
 
+        <label class="form-label">Image:
+          <input class="form-input" type="file" name="imageUpload">
+        </label>
 
-  <label>Password
-    <input type="password" name="userPassword" placeholder="yoursecret">
-  </label>
-  <br>
+        <label class="form-label">About:
+          <textarea class="form-textarea" name="aboutUser" placeholder="tell us about you"></textarea>
+        </label>
 
-  <label>Image
-    <input type="file" name="imageUpload">
-  </label>
-  <br>
+        <label class="form-label"> Course:
+          <select class="form-select" name="course">
+            <option>Web Dev</option>
+            <option>UX</option>
+            <option>Teacher/TA</option>
+            <option>Recruiter</option>
+          </select>
+        </label>
 
-  <label>About
-    <input type="text" name="aboutUser" placeholder="tell us about you">
-  </label>
-  <br>
-
-  <label>
-    <select name="course">
-      <option>Web Dev</option>
-      <option>UX</option>
-      <option>Teacher/TA</option>
-      <option>Recruiter</option>
-    </select>
-  </label>
-  <br>
-
-  <label>Start Date
-    <input type="text" name="startDate" placeholder="August 2018">
-  </label>
-  <br>
-
-  <button>SUBMIT</button>
-
-</form>
-</div>
+        <label class="form-label">Start Date:
+          <input class="form-input" type="text" name="startDate" placeholder="August 2018">
+        </label>
+      </div>
+      <button class="form-button">SUBMIT</button>
+    </form>
+  
+  
 
 </div>

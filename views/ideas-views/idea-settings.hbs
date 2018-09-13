@@ -1,31 +1,31 @@
-<h1>IDEA SETTINGS</h1>
+  <div class="main-wrapper-form">
+  <h1 class="form-h1">Edit your idea</h1>
 
-<h3>EDIT IDEA</h3>
+  
+    <form  class="form" action="/process-idea-settings/{{myIdea._id}}" method="POST">
+    <div class="form-all-labels">
+        <label class="form-label">
+          Name*:
+          <input class="form-input" type="text" name="name" value="{{myIdea.name}}" placeholder="Name of your idea" />
+        </label>
+        
+        <label class="form-label">
+          Description*:
+          <textarea class="form-textarea" name="description" placeholder="Tell us about this amazing idea">{{myIdea.description}}</textarea>
+        </label>
+        
+        <label class="form-label">
+          Deadline:
+          <input class="form-input" type="date" name="deadline" value="{{myIdea.deadline}}" placeholder="What's your deadline" />
+        </label>
+        
+        <label class="form-label">
+          Picture:
+          <input class="form-input" type="url" name="pictureUrl" value="{{myIdea.pictureUrl}}" placeholder="http://example.com" />
+        </label>
+      </div>
 
-<form action="/process-idea-settings/{{myIdea._id}}" method="POST">
-  <label>
-    Name*:
-    <input type="text" name="name" value="{{myIdea.name}}" placeholder="Name of your idea" />
-  </label>
-  <br />
-
-  <label>
-    Description*:
-    <input type="text" name="description" value="{{myIdea.description}}" placeholder="Tell us about this amazing idea" />
-  </label>
-  <br />
-
-  <label>
-    Deadline:
-    <input type="date" name="deadline" value="{{myIdea.deadline}}" placeholder="What's your deadline" />
-  </label>
-  <br />
-
-  <label>
-    Picture URL:
-    <input type="url" name="pictureUrl" value="{{myIdea.pictureUrl}}" placeholder="http://example.com" />
-  </label>
-  <br />
-
-  <button>Save your idea</button>
-</form>
+      <button class="form-button">Save your idea</button>
+    </form>
+  </div>
+</div>

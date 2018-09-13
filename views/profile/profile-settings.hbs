@@ -1,50 +1,43 @@
-<h1>PROFILE SETTINGS</h1>
+<div class="main-wrapper-form">
+  <h1 class="form-h1">Edit your profile</h1>
 
-<h2>EDIT</h2>
+  <form class="form" action="/process-profile-settings" method="POST" enctype="multipart/form-data">
+    <div class="form-all-labels">
+      <label class="form-label">Full Name
+        <input class="form-input" type="text" value="{{currentUser.fullName}}" name="fullName">
+      </label>
 
-<form action="/process-profile-settings" method="POST" enctype="multipart/form-data">
+      <label class="form-label">Email
+        <input class="form-input" type="email" value="{{currentUser.email}}" name="email">
+      </label>
 
-  <label>Full Name
-    <input type="text" value="{{currentUser.fullName}}" name="fullName">
-  </label>
-  <br>
+      <label class="form-label">Password
+        <input class="form-input" type="password" value="password" name="userPassword">
+      </label>
 
-  <label>Email
-    <input type="email" value="{{currentUser.email}}" name="email">
-  </label>
-  <br>
+      <label class="form-label">
+        <input class="form-input" type="file" value="{{currentUser.avatar}}" name="imageUpload">
+      </label>
 
+      <label class="form-label">About
+        <textarea class="form-textarea" type="text" name="aboutUser"placeholder="tell us about you">{{currentUser.aboutUser}}</textarea> 
+      </label>
 
-  <label>Password
-    <input type="password" value="password" name="userPassword">
-  </label>
-  <br>
+      <label class="form-label">
+        <select class="form-select" value="{{currentUser.course}}" name="course">
+          <option>Web Dev</option>
+          <option>UX</option>
+          <option>Teacher/TA</option>
+          <option>Recruiter</option>
+        </select>
+      </label>
 
-  <label>
-    <input type="file" value="{{currentUser.avatar}}" name="imageUpload">
-  </label>
-  <br>
+      <label class="form-label">Start Date
+        <input class="form-input" type="text" value="{{currentUser.startDate}}" name="startDate" placeholder="August 2018">
+      </label>
+    </div>
 
-  <label>About
-    <input type="text" name="aboutUser" value="{{currentUser.aboutUser}}" placeholder="tell us about you">
-  </label>
-  <br>
+    <button class="form-button">SUBMIT</button>
 
-  <label>
-    <select value="{{currentUser.course}}" name="course">
-      <option>Web Dev</option>
-      <option>UX</option>
-      <option>Teacher/TA</option>
-      <option>Recruiter</option>
-    </select>
-  </label>
-  <br>
-
-  <label>Start Date
-    <input type="text" value="{{currentUser.startDate}}" name="startDate" placeholder="August 2018">
-  </label>
-  <br>
-
-  <button>SUBMIT</button>
-
-</form>
+  </form>
+</div> 

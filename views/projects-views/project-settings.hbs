@@ -1,39 +1,39 @@
-<h1>PROJECT SETTINGS</h1>
+<div class="main-wrapper-form">
+  <h1 class="form-h1">EDIT YOUR PROJECT</h1>
 
-<h3>EDIT YOUR PROJECT</h3>
 
-<form action="/process-project-settings/{{myProject._id}}" method="POST">
+  <form class="form" action="/process-project-settings/{{myProject._id}}" method="POST">
+    <div class="form-all-labels">
+      <label class="form-label">
+        Name*:
+        <input class="form-input" type="text" value="{{myProject.name}}" name="name" placeholder="Name of your project" />
+      </label>
 
-  {{!-- to add a value to all fields --}}
-  <label>
-    Name*:
-    <input type="text" value="{{myProject.name}}" name="name" placeholder="Name of your project" />
-  </label>
-  <br />
 
-  <label>
-    Description*:
-    <input type="text" value="{{myProject.description}}" name="description" placeholder="Tell us about this amazing project" />
-  </label>
-  <br />
+      <label class="form-label">
+        Description*:
+        <textarea class="form-textarea" type="text" name="description" placeholder="Tell us about this amazing project">{{myProject.description}}</textarea>
+      </label>
 
-  <label>
-    Deadline:
-    <input type="date" value="{{myProject.deadline}}" name="deadline" placeholder="What's your deadline" />
-  </label>
-  <br />
 
-  <label>
-    Picture URL:
-    <input type="url" value="{{myProject.pictureUrl}}" name="pictureUrl" placeholder="http://example.com" />
-  </label>
-  <br />
+      <label class="form-label">
+        Deadline:
+        <input class="form-input" type="date" value="{{myProject.deadline}}" name="deadline" placeholder="What's your deadline" />
+      </label>
 
-  <label>
-    Link URL:
-    <input type="url" value="{{myProject.linkUrl}}" name="linkUrl" placeholder="http://example.com" />
-  </label>
-  <br />
 
-  <button>Save your project</button>
-</form>
+      <label class="form-label">
+        Picture:
+        <input class="form-input" type="url" value="{{myProject.pictureUrl}}" name="pictureUrl" placeholder="http://example.com" />
+      </label>
+
+
+      <label class="form-label">
+        Link URL:
+        <input class="form-input" type="url" value="{{myProject.linkUrl}}" name="linkUrl" placeholder="http://example.com" />
+      </label>
+    </div>
+
+    <button class="form-button">Save your project</button>
+  </form>
+</div>
