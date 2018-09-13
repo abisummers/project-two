@@ -73,27 +73,30 @@ router.get("/add-idea", (req, res, next) => {
   res.render("ideas-views/idea-form.hbs");
 });
 
-router.post("/process-idea", fileUploader.single("imageUpload"), (req, res, next) => {
-  const { name, description, deadline } = req.body;
-  const author = req.user._id;
-  let picture;
+router.post(
+  "/process-idea",
+  fileUploader.single("pictureUpload"),
+  (req, res, next) => {
+    const { name, description, deadline } = req.body;
+    const author = req.user._id;
+    let picture;
     if (req.file) {
       picture = req.file.secure_url;
     }
 
-  Idea.create({ name, description, deadline, picture, author })
-    .then(ideaDoc => {
-      const { _id } = ideaDoc;
-      req.flash("success", "Idea created successfully!");
-      res.redirect(`/ideas/${_id}`);
-      // res.send(ideaDoc);
-    })
-    .catch(err => next(err));
-});
-
+    Idea.create({ name, description, deadline, picture, author })
+      .then(ideaDoc => {
+        const { _id } = ideaDoc;
+        req.flash("success", "Idea created successfully!");
+        res.redirect(`/ideas/${_id}`);
+        // res.send(ideaDoc);
+      })
+      .catch(err => next(err));
+  }
+);
 
 //------------------------------DELETE IDEA -----------------------
-router.get("/ideas/:ideaId/delete", (req, res,next)=> {
+router.get("/ideas/:ideaId/delete", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "You must be logged in to see this page");
     res.redirect("/");

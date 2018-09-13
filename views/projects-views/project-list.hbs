@@ -1,19 +1,24 @@
-<h2>Projects list</h2>
+<h2 class="project-list">Projects list</h2>
 
 
+<div class="list-container">
 
-<ul>
-  {{#each projectArray}}
-  <li>
-    <h3>{{this.name}}</h3>
-    <img src="{{this.pictureUrl}}" />
-    <a href="/projects/{{this._id}}"><button>See more</button></a>
-  </li>
-  {{else}}
-  <p>There is no projects yet</p>
-  <a href="/add-project">Add your amazing project</a>
-  {{/each}}
-</ul>
+  <ul class="ideas">
+    {{#each projectArray}}
+    <li class="project-list-layout">
 
+      <h3>{{this.name}}</h3>
+      <img src="{{this.picture}}" />
+      <br>
+      <a class="project-button" href="/projects/{{this._id}}"><button>See more</button></a>
+    </li>
+
+    {{else}}
+    <p>There is no projects yet</p>
+    <a href="/add-project">Add your amazing project</a>
+    {{/each}}
+  </ul>
+
+</div>
 
 <a href="/add-project">Add a Project</a>

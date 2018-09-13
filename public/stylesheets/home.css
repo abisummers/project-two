@@ -1,19 +1,35 @@
 h1 {
   text-align: center; }
 
+#title {
+  margin-bottom: 50px; }
+
 .login {
   border: black 1px solid;
-  margin-left: 10%;
-  width: 80%; }
+  margin-left: 20%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
 
 .login label {
   text-transform: uppercase; }
 
 .login input {
-  border: grey 1px solid; }
+  border: grey 1px solid;
+  margin-bottom: 15px;
+  margin-top: 5px; }
 
 .login button {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 15px; }
+
+button {
+  background-color: #2d62d7;
+  color: white;
+  font-weight: bold;
+  padding: 1% 10%;
+  border-radius: 5px; }
 
 .home-buttons {
   text-align: center;
@@ -34,9 +50,64 @@ h1 {
   padding: 20px;
   margin: 30px 0; }
 
+.idea-list,
+.project-list {
+  text-transform: uppercase;
+  text-align: center; }
+
+.idea-list-layout,
+.project-list-layout {
+  padding-left: 0;
+  border: black 1px solid;
+  list-style-type: none;
+  margin-bottom: 4%;
+  width: 30%;
+  margin: auto; }
+
+.idea-list-layout h3,
+.idea-list-layout a,
+.project-list-layout h3,
+.project-list-layout a {
+  text-align: center; }
+
+.idea-list-layout img,
+.project-list-layout img {
+  object-fit: cover;
+  background: 50% 50% no-repeat;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: auto; }
+
+.idea-button > button,
+.project-button > button {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%; }
+
+.list-container {
+  margin: auto;
+  width: 90%; }
+
+.ideas {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap; }
+
+.project-list-layout > div {
+  flex: 1 1 200px; }
+
+@media (max-width: 600px) {
+  .ideas {
+    display: block;
+    width: 90%; }
+  .ideas > .project-list-layout,
+  .ideas > .idea-list-layout {
+    width: 80%; } }
+
 @media (min-width: 450px) {
   nav {
-    background-color: #2d62d7;
+    background-color: #6093c7;
     height: 50px;
     display: flex;
     align-items: center;

@@ -38,23 +38,26 @@ router.post(
     } = req.body;
     const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
+    var changes = {
+      fullName,
+      email,
+      course,
+      startDate,
+      aboutUser,
+      encryptedPassword
+    };
+
     let avatar;
     if (req.file) {
       avatar = req.file.secure_url;
+      changes.avatar = avatar;
     }
+    console.log(changes);
 
     User.findByIdAndUpdate(
       req.user._id,
       {
-        $set: {
-          fullName,
-          email,
-          course,
-          startDate,
-          encryptedPassword,
-          aboutUser,
-          avatar
-        }
+        $set: changes
       },
       { runValidators: true }
     )
@@ -90,22 +93,37 @@ router.get("/project-settings/:projectId", (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.post(
+  "/process-project-settings/:projectId",
+  fileUploader.single("imageUpload"),
+  (req, res, next) => {
+    const { projectId } = req.params;
+    const { name, description, deadline, linkUrl } = req.body;
 
-router.post("/process-project-settings/:projectId", (req, res, next) => {
+    var changes = {
+      name,
+      description,
+      deadline,
+      linkUrl
+    };
 
-  const { projectId } = req.params;
-  const { name, description, deadline, pictureUrl, linkUrl } = req.body;
+    let picture;
+    if (req.file) {
+      picture = req.file.secure_url;
+      changes.picture = picture;
+    }
 
-  Project.findByIdAndUpdate(
-    projectId,
-    { $set: { name, description, deadline, pictureUrl, linkUrl } },
-    { runValidators: true }
-  )
-    .then(projectDoc => {
-      res.redirect(`/projects/${projectId}`);
-    })
-    .catch(err => next(err));
-});
+    Project.findByIdAndUpdate(
+      projectId,
+      { $set: changes },
+      { runValidators: true }
+    )
+      .then(projectDoc => {
+        res.redirect(`/projects/${projectId}`);
+      })
+      .catch(err => next(err));
+  }
+);
 
 //-----------------------EDIT IDEAS -------------------------
 
@@ -131,20 +149,39 @@ router.get("/idea-settings/:ideaId", (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.post("/process-idea-settings/:ideaId", (req, res, next) => {
+router.post(
+  "/process-idea-settings/:ideaId",
+  fileUploader.single("pictureUpload"),
+  (req, res, next) => {
+    const { ideaId } = req.params;
+    const { name, description, deadline } = req.body;
 
-  const { ideaId } = req.params;
-  const { name, description, deadline, pictureUrl } = req.body;
+    var change = {
+      name,
+      description,
+      deadline
+    };
 
-  Idea.findByIdAndUpdate(
-    ideaId,
-    { $set: { name, description, deadline, pictureUrl } },
-    { runValidators: true }
-  )
-    .then(ideaDoc => {
-      res.redirect(`/ideas/${ideaId}`);
-    })
-    .catch(err => next(err));
-});
+    let picture;
+    if (req.file) {
+      picture = req.file.secure_url;
+      change.picture = picture;
+    }
+
+    console.log(change);
+
+    Idea.findByIdAndUpdate(
+      ideaId,
+      {
+        $set: change
+      },
+      { runValidators: true }
+    )
+      .then(ideaDoc => {
+        res.redirect(`/ideas/${ideaId}`);
+      })
+      .catch(err => next(err));
+  }
+);
 
 module.exports = router;
