@@ -1,6 +1,3 @@
-h1 {
-  text-align: center; }
-
 #title {
   margin-bottom: 50px; }
 
@@ -31,7 +28,8 @@ button {
   padding: 1% 10%;
   border-radius: 5px; }
 
-.home-buttons {
+.home-buttons,
+.verified-users {
   text-align: center;
   border: 1px solid black;
   width: 50%;
@@ -39,16 +37,19 @@ button {
   margin-bottom: 30px;
   padding: 20px 0; }
 
-.home-button-text a {
+.verified-users a > button,
+.home-button-text a > button {
   display: inline-block;
   text-align: center;
   text-decoration: none;
   color: white;
   background-color: #32c3ff;
   width: 50%;
-  border: 1px black solid;
   padding: 20px;
   margin: 30px 0; }
+
+.verified-users p {
+  color: #383838; }
 
 .idea-list,
 .project-list {
@@ -116,14 +117,15 @@ nav img {
     box-shadow: 0 0 3px #32c3ff; }
   nav a,
   nav b {
-    color: #171795;
+    color: #383838;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0 7px; }
   nav img {
     visibility: visible;
     object-fit: cover;
-    height: 50px; }
+    height: 50px;
+    border: none; }
   .logo {
     display: flex;
     color: #32c3ff; } }

@@ -3,10 +3,6 @@
 
 //to add burger menu on nav bar for mobile
 
-h1 {
-  text-align: center;
-}
-
 //LOGIN PAGE (index.hbs) --------------
 
 #title {
@@ -47,7 +43,8 @@ button {
 
 //HOME PAGE -----------------------
 
-.home-buttons {
+.home-buttons,
+.verified-users {
   text-align: center;
   border: 1px solid black;
   width: 50%;
@@ -56,16 +53,21 @@ button {
   padding: 20px 0;
 }
 
-.home-button-text a {
+.verified-users a > button,
+.home-button-text a > button {
   display: inline-block;
   text-align: center;
   text-decoration: none;
   color: white;
   background-color: #32c3ff;
   width: 50%;
-  border: 1px black solid;
+
   padding: 20px;
   margin: 30px 0;
+}
+
+.verified-users p {
+  color: #383838;
 }
 
 //PROJECT AND IDEA LIST ------------
@@ -152,7 +154,7 @@ nav img {
 
   nav a,
   nav b {
-    color: #171795;
+    color: #383838;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0 7px;
@@ -162,6 +164,7 @@ nav img {
     visibility: visible;
     object-fit: cover;
     height: 50px;
+    border: none;
   }
   .logo {
     display: flex;

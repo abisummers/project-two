@@ -3,22 +3,22 @@
 {{>flash_messages}}
 
 {{#if currentUser.isAdmin}}
-<div>
+<div class="verified-users">
   <p>You have X users to verify</p>
   <a href="/admin/non-verified-users"><button>Verify users</button></a>
 </div>
 {{/if}}
 
 <div class="home-buttons home-button-text">
-  <a href="/ideas">IDEAS</a>
+  <a href="/ideas"><button>IDEAS</button></a>
   <br>
 
-  <a href="/add-idea">CREATE</a>
+  <a href="/add-idea"> <button>CREATE</button> </a>
 </div>
 
 
 <div class="home-buttons home-button-text">
-  <a href="/projects">PROJECTS</a>
+  <a href="/projects"><button>PROJECTS</button></a>
   <br>
-  <a href="/add-project">CREATE</a>
+  <a href="/add-project"><button>CREATE</button></a>
 </div>
