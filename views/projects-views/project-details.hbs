@@ -14,17 +14,12 @@
     
     {{#if isOwner}}
     <div class="detailed-main-author">
-      <a href="/project-settings/{{myProject._id}}">EDIT</a>
-      <a href="/projects/{{myProject._id}}/delete">DELETE</a>
+      <a href="/project-settings/{{myProject._id}}"><button>EDIT</button></a>
+      <a href="/projects/{{myProject._id}}/delete"><button>DELETE</button></a>
     </div>
     {{/if}}
 
     <div class="detailed-comments">
-      <form action="/projects/{{myProject._id}}/process-comment" method="POST">
-        <input type="text" name="content" placeholder="Any feedback on this project?" />
-        <button>Save your comment</button>
-      </form>
-
       <ul>
         {{#each commentArray}}
         <li>
@@ -35,6 +30,11 @@
         <li>No reviews yet. Be the first to write one!</li>
         {{/each}}
       </ul>
+
+      <form class="detailed-comments-form" action="/projects/{{myProject._id}}/process-comment" method="POST">
+        <textarea name="content" placeholder="Any feedback on this project?"></textarea>
+        <button>Save your comment</button>
+      </form>
     </div>
   </div>
 
