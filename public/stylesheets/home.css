@@ -24,9 +24,9 @@
 .home-buttons,
 .verified-users {
   text-align: center;
-  border: 1px solid black;
-  width: 50%;
-  margin-left: 25%;
+  box-shadow: 0 0 8px #808080;
+  width: 45%;
+  margin: auto;
   margin-bottom: 30px;
   padding: 20px 0; }
 
@@ -44,6 +44,17 @@
 .verified-users p {
   color: #383838; }
 
+.home-section {
+  display: flex;
+  flex-direction: column; }
+
+@media (min-width: 600px) {
+  .home-section {
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; } }
+
 .idea-list,
 .project-list {
   text-transform: uppercase;
@@ -53,7 +64,6 @@
 .idea-list-layout,
 .project-list-layout {
   padding-left: 0;
-  border: black 1px solid;
   list-style-type: none;
   width: 30%;
   margin: 0 auto 4%; }
@@ -92,6 +102,12 @@
 .project-list-layout > div {
   flex: 1 1 200px; }
 
+.create-project {
+  border: black solid 1px;
+  width: 30%;
+  height: 100px;
+  height: 250px; }
+
 @media (max-width: 600px) {
   .ideas {
     display: block;
@@ -99,12 +115,6 @@
   .ideas > .project-list-layout,
   .ideas > .idea-list-layout {
     width: 80%; } }
-
-.create-project {
-  border: black solid 1px;
-  width: 30%;
-  height: 100px;
-  height: 250px; }
 
 nav img {
   object-fit: cover;

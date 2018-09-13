@@ -13,12 +13,16 @@
       <a class="project-button" href="/projects/{{this._id}}"><button>See more</button></a>
     </li>
 
-    {{else}}
-    <p>There is no projects yet</p>
-    <a href="/add-project">Add your amazing project</a>
+
     {{/each}}
+
+
+    <li class="idea-list-layout">
+      <h3>CREATE</h3>
+      <img src="/images/you.gif" alt="">
+      <br>
+      <a class="idea-button" href="/add-idea"><button>CREATE</button></a>
+    </li>
   </ul>
 
 </div>
-
-<a href="/add-project">Add a Project</a>

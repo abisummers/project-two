@@ -37,7 +37,8 @@ router.post(
         if (req.file) {
           avatar = req.file.secure_url;
         }
-        User.create({
+
+        return User.create({
           fullName,
           email,
           course,
@@ -46,12 +47,10 @@ router.post(
           avatar,
           aboutUser
         }).then(userDoc => {
-          sendSignupMail(userDoc)
-            .then(() => {
-              req.flash("success", "account created successfully");
-              res.redirect("/");
-            })
-            .catch(err => next(err));
+          return sendSignupMail(userDoc).then(() => {
+            req.flash("success", "account created successfully");
+            res.redirect("/");
+          });
         });
       })
       .catch(err => next(err));
