@@ -21,13 +21,6 @@
   text-align: center;
   margin-bottom: 15px; }
 
-button {
-  background-color: #32c3ff;
-  color: white;
-  font-weight: bold;
-  padding: 1% 10%;
-  border-radius: 5px; }
-
 .home-buttons,
 .verified-users {
   text-align: center;
@@ -106,7 +99,9 @@ button {
     width: 80%; } }
 
 nav img {
-  visibility: hidden; }
+  object-fit: cover;
+  height: 50px;
+  border: none; }
 
 @media (min-width: 450px) {
   nav {
@@ -121,11 +116,6 @@ nav img {
     text-decoration: none;
     text-transform: uppercase;
     padding: 0 7px; }
-  nav img {
-    visibility: visible;
-    object-fit: cover;
-    height: 50px;
-    border: none; }
   .logo {
     display: flex;
     color: #32c3ff; } }
