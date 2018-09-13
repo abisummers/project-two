@@ -1,45 +1,45 @@
 <div class="main-wrapper-form">
   <h1 class="form-h1">SIGN UP</h1>
 
-   
-    <form  class="form" action="/process-signup" method="POST" enctype="multipart/form-data">
-      <div class="form-all-labels">
-        <label class="form-label">Full Name:
-          <input class="form-input" type="text" name="fullName" placeholder=" Your Name">
-        </label>
 
-        <label class="form-label">Email:
-          <input class="form-input" type="email" name="email" placeholder="Your email address">
-        </label>
+  <form class="form" action="/process-signup" method="POST" enctype="multipart/form-data">
+    <div class="form-all-labels">
+      <label class="form-label">Full Name:
+        <input class="form-input" type="text" name="fullName" placeholder=" Your Name" minlength="6">
+      </label>
 
-        <label class="form-label">Password:
-          <input class="form-input" type="password" name="userPassword" placeholder="yoursecret">
-        </label>
+      <label class="form-label">Email:
+        <input class="form-input" type="email" name="email" placeholder="Your email address">
+      </label>
 
-        <label class="form-label">Image:
-          <input class="form-input" type="file" name="imageUpload">
-        </label>
+      <label class="form-label">Password:
+        <input class="form-input" type="password" name="userPassword" placeholder="yoursecret" minlength="6">
+      </label>
 
-        <label class="form-label">About:
-          <textarea class="form-textarea" name="aboutUser" placeholder="tell us about you"></textarea>
-        </label>
+      <label class="form-label">Image:
+        <input class="form-input" type="file" name="imageUpload">
+      </label>
 
-        <label class="form-label"> Course:
-          <select class="form-select" name="course">
-            <option>Web Dev</option>
-            <option>UX</option>
-            <option>Teacher/TA</option>
-            <option>Recruiter</option>
-          </select>
-        </label>
+      <label class="form-label">About:
+        <textarea class="form-textarea" name="aboutUser" placeholder="tell us about you"></textarea>
+      </label>
 
-        <label class="form-label">Start Date:
-          <input class="form-input" type="text" name="startDate" placeholder="August 2018">
-        </label>
-      </div>
-      <button class="form-button">SUBMIT</button>
-    </form>
-  
-  
+      <label class="form-label"> Course:
+        <select class="form-select" name="course">
+          <option>Web Dev</option>
+          <option>UX</option>
+          <option>Teacher/TA</option>
+          <option>Recruiter</option>
+        </select>
+      </label>
+
+      <label class="form-label">Start Date:
+        <input class="form-input" type="text" name="startDate" placeholder="August 2018">
+      </label>
+    </div>
+    <button class="form-button">SUBMIT</button>
+  </form>
+
+
 
 </div>

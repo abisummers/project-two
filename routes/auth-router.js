@@ -26,27 +26,33 @@ router.post(
     } = req.body;
     const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-    let avatar;
-    if (req.file) {
-      avatar = req.file.secure_url;
-    }
-
-    User.create({ 
-      fullName,
-      email,
-      course,
-      encryptedPassword,
-      startDate,
-      avatar,
-      aboutUser
-    })
-      .then(userDoc => {
-        sendSignupMail(userDoc)
-          .then(() => {
-          req.flash("success", "account created successfully");
+    User.findOne({ email })
+      .then(userEmail => {
+        if (userEmail) {
+          req.flash("error", "this email exists");
           res.redirect("/");
-          })
-          .catch(err => next(err));
+          return;
+        }
+        let avatar;
+        if (req.file) {
+          avatar = req.file.secure_url;
+        }
+        User.create({
+          fullName,
+          email,
+          course,
+          encryptedPassword,
+          startDate,
+          avatar,
+          aboutUser
+        }).then(userDoc => {
+          sendSignupMail(userDoc)
+            .then(() => {
+              req.flash("success", "account created successfully");
+              res.redirect("/");
+            })
+            .catch(err => next(err));
+        });
       })
       .catch(err => next(err));
   }
@@ -70,11 +76,14 @@ router.get("/home", (req, res, next) => {
     return;
   }
 
-  res.render("homepage.hbs");
+  User.find({ verified: { $eq: false } })
+    .then(userVerified => {
+      // res.send(userVerified);
+      res.locals.userVerifiedNumber = userVerified.length;
+      res.render("homepage.hbs");
+    })
+    .catch(err => next(err));
 });
-
-
-
 
 router.post("/process-login", (req, res, next) => {
   const { userPassword, email } = req.body;
