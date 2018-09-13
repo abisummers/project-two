@@ -1,42 +1,47 @@
-<h2>Project detailed page</h2>
-
 {{>flash_messages}}
 
-<img src="{{myProject.picture}}" />
-<h3>{{myProject.name}}</h3>
-<p>{{myProject.description}}</p>
-<p>User Deadline: {{myProject.deadline}}</p>
+<div class="detailed-content">
+  <div class="detailed-main-content">
 
+    <img class="detailed-main-image" src="{{myProject.picture}}" />
 
+    <div class="detailed-main-text">
+      <h1 class="detailed-main-title">{{myProject.name}}</h1>
+      <p class="detailed-main-description">{{myProject.description}}</p>
+      <p>{{myProject.linkUrl}}</p>
+      <p>User Deadline: {{myProject.deadline}}</p>
+    </div>
+    
+    {{#if isOwner}}
+    <div class="detailed-main-author">
+      <a href="/project-settings/{{myProject._id}}">EDIT</a>
+      <a href="/projects/{{myProject._id}}/delete">DELETE</a>
+    </div>
+    {{/if}}
 
-{{#if isOwner}}
+    <div class="detailed-comments">
+      <form action="/projects/{{myProject._id}}/process-comment" method="POST">
+        <input type="text" name="content" placeholder="Any feedback on this project?" />
+        <button>Save your comment</button>
+      </form>
 
-<a href="/project-settings/{{myProject._id}}">EDIT</a>
-<a href="/projects/{{myProject._id}}/delete">DELETE</a>
+      <ul>
+        {{#each commentArray}}
+        <li>
+          <p><b>{{this.author.fullName}}</b> says:</p>
+          <p>{{this.content}}</p>
+        </li>
+        {{else}}
+        <li>No reviews yet. Be the first to write one!</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
 
-
-{{/if}}
-<section>
-  <form action="/projects/{{myProject._id}}/process-comment" method="POST">
-    <input type="text" name="content" placeholder="Any feedback on this project?" />
-    <button>Save your comment</button>
-  </form>
-
-  <ul>
-    {{#each commentArray}}
-    <li>
-      <p><b>{{this.author.fullName}}</b> says:</p>
-      <p>{{this.content}}</p>
-    </li>
-    {{else}}
-    <li>No reviews yet. Be the first to write one!</li>
-    {{/each}}
-  </ul>
-</section>
-
-
-
-<h3>User</h3>
-<p>{{myProject.author.fullName}}</p>
-<p>{{myProject.author.email}}</p>
-<p>{{myProject.author.course}}</p>
+  <div class="detailed-author-content">
+    <h3>User</h3>
+    <p>{{myProject.author.fullName}}</p>
+    <p>{{myProject.author.email}}</p>
+    <p>{{myProject.author.course}}</p>
+  </div>
+</div>

@@ -32,6 +32,30 @@
 .form-button {
   margin: 15% 0 4%; }
 
+.detailed-content {
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0;
+  padding: 2%; }
+
+.detailed-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; }
+
+.detailed-main-image {
+  height: 200px; }
+
+.detailed-main-title {
+  font-size: 18px; }
+
+.detailed-main-description {
+  text-align: justify; }
+
+img {
+  border: 1px solid black; }
+
 @media (min-width: 450px) {
   .form-h1 {
     margin: 6%; }
