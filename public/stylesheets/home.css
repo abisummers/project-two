@@ -24,12 +24,8 @@ h1 {
   text-align: center;
   margin-bottom: 15px; }
 
-button {
-  background-color: #32c3ff;
-  color: white;
-  font-weight: bold;
-  padding: 1% 10%;
-  border-radius: 5px; }
+.button {
+  padding: 1% 10%; }
 
 .home-buttons {
   text-align: center;
