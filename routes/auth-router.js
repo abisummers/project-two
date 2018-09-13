@@ -26,27 +26,33 @@ router.post(
     } = req.body;
     const encryptedPassword = bcrypt.hashSync(userPassword, 10);
 
-    let avatar;
-    if (req.file) {
-      avatar = req.file.secure_url;
-    }
-
-    User.create({
-      fullName,
-      email,
-      course,
-      encryptedPassword,
-      startDate,
-      avatar,
-      aboutUser
-    })
-      .then(userDoc => {
-        sendSignupMail(userDoc)
-          .then(() => {
-            req.flash("success", "account created successfully");
-            res.redirect("/");
-          })
-          .catch(err => next(err));
+    User.findOne({ email })
+      .then(userEmail => {
+        if (userEmail) {
+          req.flash("error", "this email exists");
+          res.redirect("/");
+          return;
+        }
+        let avatar;
+        if (req.file) {
+          avatar = req.file.secure_url;
+        }
+        User.create({
+          fullName,
+          email,
+          course,
+          encryptedPassword,
+          startDate,
+          avatar,
+          aboutUser
+        }).then(userDoc => {
+          sendSignupMail(userDoc)
+            .then(() => {
+              req.flash("success", "account created successfully");
+              res.redirect("/");
+            })
+            .catch(err => next(err));
+        });
       })
       .catch(err => next(err));
   }
