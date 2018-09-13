@@ -68,6 +68,7 @@
 .project-list {
   text-transform: uppercase;
   text-align: center;
+  font-family: "Permanent Marker";
 }
 
 .idea-list-layout,
@@ -85,7 +86,7 @@
 .project-list-layout a {
   text-align: center;
 }
-
+.create-project img,
 .idea-list-layout img,
 .project-list-layout img {
   object-fit: cover;
@@ -127,6 +128,13 @@
   .ideas > .idea-list-layout {
     width: 80%;
   }
+}
+
+.create-project {
+  border: black solid 1px;
+  width: 30%;
+  height: 100px;
+  height: 250px;
 }
 
 //-----------------------DESKTOP -------------------------

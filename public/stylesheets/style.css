@@ -12,6 +12,7 @@
   color: crimson; }
 
 body {
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif "Permanent Marker";
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -20,12 +21,14 @@ body {
   color: #383838; }
 
 h1 {
+  font-family: "Permanent Marker";
   font-size: 25px;
   text-transform: uppercase;
   text-align: center;
   color: #32c3ff; }
 
 h2  {
+  font-family: "Permanent Marker";
   font-size: 18px;
   text-transform: uppercase; }
 
