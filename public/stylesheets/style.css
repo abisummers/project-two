@@ -37,17 +37,26 @@ button {
   box-shadow: 0 0 3px #808080; }
 
 button:hover {
+<<<<<<< HEAD
   background-color: #1A2D41; }
+=======
+  background-color: #1a2d41; }
+>>>>>>> updated colours
 
 footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #2d62d7;
+  background-color: #32c3ff;
   color: white;
   text-align: center;
+<<<<<<< HEAD
   text-transform: uppercase; }
+=======
+  text-transform: uppercase;
+  z-index: 1; }
+>>>>>>> updated colours
 
 @media (min-width: 450px) {
   button {
