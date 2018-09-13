@@ -57,7 +57,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: 5% 0;
-  padding: 5%;
+  padding-top: 5%;
 }
 
 .detailed-main-content{
@@ -66,6 +66,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 10%;
+  padding: 0 5%;
 }
 
 .detailed-main-image {
@@ -127,10 +128,20 @@
 .detailed-author-content {
   background-color: #2d354c;
   color: #fff;
-  width: 100%;
+  padding: 5%;
+  text-align: center;
 }
 
+.detailed-author-content img {
+  object-fit: cover;
+  background: 50% 50% no-repeat;
+  width: 150px;
+  height: 150px;
+}
 
+.detailed-author-text {
+  margin-bottom: 10%;
+}
 
 //------------------------------ DESKTOP ----------------------------
 
@@ -156,5 +167,39 @@
 
 //DETAILED PAGES------------------------------------------------------------
 
+.detailed-content {
+  flex-direction: row;
+  align-items: stretch;
+  margin: 1px 0 0;
+  padding-top: 0;
+
+}
+
+.detailed-main-title {
+  font-size: 25px; 
+}
+
+.detailed-main-content {
+  width: 65%;
+}
+
+.detailed-comments li {
+  margin: 5% 0;
+}
+
+.detailed-comments-form > textarea {
+  margin: 2%;
+}
+
+.detailed-main-author {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10%;
+}
+
+.detailed-author-content{
+  width: 25%;
+}
 
 }

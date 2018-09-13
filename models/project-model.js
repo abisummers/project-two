@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const Schema = mongoose.Schema;
+
 
 const projectSchema = new Schema({
   name: { type: String, required: true },
@@ -20,9 +22,9 @@ const projectSchema = new Schema({
   }
 );
 
-// projectSchema.virtual("isAdmin").get(function() {
-//   return this._id === currentUser.id;
-// });
+projectSchema.virtual("getDeadline").get(function() {
+  return moment(this.deadline).format("MMM DD YYYY");
+});
 
 const Project = mongoose.model("Project", projectSchema);
 module.exports = Project;

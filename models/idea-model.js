@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const Schema = mongoose.Schema;
 
@@ -19,6 +20,9 @@ const ideaSchema = new Schema({
   timestamps: true
 });
 
+ideaSchema.virtual("getDeadline").get(function() {
+  return moment(this.deadline).format("MMM DD YYYY");
+});
 
 const Idea = mongoose.model("Idea", ideaSchema);
 

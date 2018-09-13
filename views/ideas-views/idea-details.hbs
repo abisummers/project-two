@@ -1,18 +1,34 @@
-<h2>Idea detailed page</h2>
-
 {{>flash_messages}}
 
-<img src="{{myIdea.picture}}" />
-<h3>{{myIdea.name}}</h3>
-<p>{{myIdea.description}}</p>
-<p>User Deadline: {{myIdea.deadline}}</p>
 
-{{#if isOwner}}
-<a href="/idea-settings/{{myIdea._id}}">EDIT</a>
-<a href="/ideas/{{myIdea._id}}/delete">DELETE</a>
-{{/if}}
+<div class="detailed-content">
+    <div class="detailed-main-content">
 
-<h3>User</h3>
-<p>{{myIdea.author.fullName}}</p>
-<p>{{myIdea.author.email}}</p>
-<p>{{myIdea.author.course}}</p>
+        <img class="detailed-main-image" src="{{myIdea.picture}}" />
+        
+        <div class="detailed-main-text">
+            <h1 class="detailed-main-title">{{myIdea.name}}</h1>
+            <p class="detailed-main-description">{{myIdea.description}}</p>
+            <p>User Deadline: {{myIdea.getDeadline}}</p>
+        </div>
+
+        {{#if isOwner}}
+        <div class="detailed-main-author">
+        <a href="/idea-settings/{{myIdea._id}}"><button>EDIT</button></a>
+        <a href="/ideas/{{myIdea._id}}/delete"><button>DELETE</button></a>
+        </div>
+        {{/if}}
+
+    </div>
+
+    <div class="detailed-author-content">
+        <div class="detailed-author-text">
+            <h2>Creator</h2>
+            <img src="{{myIdea.author.avatar}}"/>
+            <p>{{myIdea.author.fullName}}</p>
+            <p>{{myIdea.author.email}}</p>
+            <p>{{myIdea.author.course}}</p>
+        </div>
+        <a href="mailto:{{myProject.author.email}}"><button>Message me</button></a>
+    </div>
+</div>

@@ -8,8 +8,8 @@
     <div class="detailed-main-text">
       <h1 class="detailed-main-title">{{myProject.name}}</h1>
       <p class="detailed-main-description">{{myProject.description}}</p>
-      <p>{{myProject.linkUrl}}</p>
-      <p>User Deadline: {{myProject.deadline}}</p>
+      <p><a href="{{myProject.linkUrl}}">{{myProject.linkUrl}}</a></p>
+      <p>User Deadline: {{myProject.getDeadline}}</p>
     </div>
     
     {{#if isOwner}}
@@ -39,9 +39,14 @@
   </div>
 
   <div class="detailed-author-content">
-    <h3>User</h3>
-    <p>{{myProject.author.fullName}}</p>
-    <p>{{myProject.author.email}}</p>
-    <p>{{myProject.author.course}}</p>
+    <div class="detailed-author-text">
+    <h2>Creator</h2>
+    <img src="{{myProject.author.avatar}}"/>
+    <h3>{{myProject.author.fullName}}</h3>
+    <p>{{myProject.author.aboutUser}}</p>
+    <p>Course: {{myProject.author.course}}</p>
+    <p>Start date: {{myProject.author.startDate}}</p>
+    </div>
+    <a href="mailto:{{myProject.author.email}}"><button>Message me</button></a>
   </div>
 </div>
