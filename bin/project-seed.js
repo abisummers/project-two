@@ -26,14 +26,6 @@ const projectData = [
     pictureUrl: "https://media.giphy.com/media/26BoCVdjSJOWT0Fpu/giphy.gif",
     linkUrl: "",
     author: {}
-  },
-  {
-    name: "",
-    description: "",
-    deadline: " ",
-    pictureUrl: "",
-    linkUrl: "",
-    author: {}
   }
 ];
 
