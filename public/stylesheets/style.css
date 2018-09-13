@@ -3,13 +3,16 @@
 [class$="-message"] {
   border: 3px solid;
   border-radius: 3px;
-  padding: 10px; }
+  padding: 10px;
+}
 
 .success-message {
-  color: chartreuse; }
+  color: chartreuse;
+}
 
 .error-message {
-  color: crimson; }
+  color: crimson;
+}
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -17,31 +20,32 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  color: #383838; }
+  color: #383838;
+}
 
 h1 {
   font-size: 25px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 h2  {
   font-size: 18px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 button {
-  background-color: #6093C7;
+  background-color: #6093c7;
   border-style: none;
   color: white;
   font-weight: bold;
   padding: 4% 10%;
   border-radius: 5px;
-  box-shadow: 0 0 3px #808080; }
+  box-shadow: 0 0 3px #808080;
+}
 
 button:hover {
-<<<<<<< HEAD
-  background-color: #1A2D41; }
-=======
-  background-color: #1a2d41; }
->>>>>>> updated colours
+  background-color: #1a2d41;
+}
 
 footer {
   position: fixed;
@@ -51,15 +55,14 @@ footer {
   background-color: #32c3ff;
   color: white;
   text-align: center;
-<<<<<<< HEAD
-  text-transform: uppercase; }
-=======
   text-transform: uppercase;
-  z-index: 1; }
->>>>>>> updated colours
+  z-index: 1;
+}
 
 @media (min-width: 450px) {
   button {
-    padding: 2% 5%; } }
+    padding: 2% 5%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
