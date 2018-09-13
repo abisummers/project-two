@@ -4,7 +4,7 @@
 
 {{#if currentUser.isAdmin}}
 <div class="verified-users">
-  <p>You have X users to verify</p>
+  <p>You have {{userVerifiedNumber}} users to verify</p>
   <a href="/admin/non-verified-users"><button>Verify users</button></a>
 </div>
 {{/if}}

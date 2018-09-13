@@ -76,7 +76,13 @@ router.get("/home", (req, res, next) => {
     return;
   }
 
-  res.render("homepage.hbs");
+  User.find({ verified: { $eq: false } })
+    .then(userVerified => {
+      // res.send(userVerified);
+      res.locals.userVerifiedNumber = userVerified.length;
+      res.render("homepage.hbs");
+    })
+    .catch(err => next(err));
 });
 
 router.post("/process-login", (req, res, next) => {
