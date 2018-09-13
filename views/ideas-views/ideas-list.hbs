@@ -1,19 +1,28 @@
-<h2>Ideas list</h2>
+<h2 class="idea-list">Ideas list</h2>
+
+<div class="list-container">
+
+  <ul class="ideas">
+    {{#each ideaArray}}
 
 
+    <li class="idea-list-layout">
 
-<ul>
-  {{#each ideaArray}}
-  <li>
-    <h3>{{this.name}}</h3>
-    <img src="{{this.pictureUrl}}" />
-    <a href="/ideas/{{this._id}}"><button>See more</button></a>
-  </li>
-  {{else}}
-  <p>There is no ideas yet</p>
-  <a href="/add-idea">Add your amazing idea</a>
-  {{/each}}
-</ul>
+      <h3>{{this.name}}</h3>
+      <img src="{{this.picture}}" />
+      <br>
+      <a class="idea-button" href="/ideas/{{this._id}}"><button>See more</button></a>
 
+    </li>
+
+    {{else}}
+
+    <p>There is no ideas yet</p>
+    <a href="/add-idea">Add your amazing idea</a>
+    {{/each}}
+  </ul>
+
+
+</div>
 
 <a href="/add-idea">Add an Idea</a>
