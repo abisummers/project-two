@@ -1,31 +1,31 @@
-  <div class="main-wrapper-form">
+<div class="main-wrapper-form">
   <h1 class="form-h1">Edit your idea</h1>
 
-  
-    <form  class="form" action="/process-idea-settings/{{myIdea._id}}" method="POST">
-    <div class="form-all-labels">
-        <label class="form-label">
-          Name*:
-          <input class="form-input" type="text" name="name" value="{{myIdea.name}}" placeholder="Name of your idea" />
-        </label>
-        
-        <label class="form-label">
-          Description*:
-          <textarea class="form-textarea" name="description" placeholder="Tell us about this amazing idea">{{myIdea.description}}</textarea>
-        </label>
-        
-        <label class="form-label">
-          Deadline:
-          <input class="form-input" type="date" name="deadline" value="{{myIdea.deadline}}" placeholder="What's your deadline" />
-        </label>
-        
-        <label class="form-label">
-          Picture:
-          <input class="form-input" type="url" name="pictureUrl" value="{{myIdea.pictureUrl}}" placeholder="http://example.com" />
-        </label>
-      </div>
 
-      <button class="form-button">Save your idea</button>
-    </form>
-  </div>
+  <form class="form" action="/process-idea-settings/{{myIdea._id}}" method="POST" enctype="multipart/form-data">
+    <div class="form-all-labels">
+      <label class="form-label">
+        Name*:
+        <input class="form-input" type="text" name="name" value="{{myIdea.name}}" placeholder="Name of your idea" />
+      </label>
+
+      <label class="form-label">
+        Description*:
+        <textarea class="form-textarea" name="description" placeholder="Tell us about this amazing idea">{{myIdea.description}}</textarea>
+      </label>
+
+      <label class="form-label">
+        Deadline:
+        <input class="form-input" type="date" name="deadline" value="{{myIdea.deadline}}" placeholder="What's your deadline" />
+      </label>
+
+      <label class="form-label">
+        Picture:
+        <input class="form-input" type="url" name="pictureUpload" value="{{myIdea.pictureUrl}}" placeholder="http://example.com" />
+      </label>
+    </div>
+
+    <button class="form-button">Save your idea</button>
+  </form>
+</div>
 </div>

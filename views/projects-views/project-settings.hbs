@@ -2,7 +2,7 @@
   <h1 class="form-h1">EDIT YOUR PROJECT</h1>
 
 
-  <form class="form" action="/process-project-settings/{{myProject._id}}" method="POST">
+  <form class="form" action="/process-project-settings/{{myProject._id}}" method="POST" enctype="multipart/form-data">
     <div class="form-all-labels">
       <label class="form-label">
         Name*:
@@ -24,7 +24,7 @@
 
       <label class="form-label">
         Picture:
-        <input class="form-input" type="url" value="{{myProject.pictureUrl}}" name="pictureUrl" placeholder="http://example.com" />
+        <input class="form-input" type="url" value="{{myProject.pictureUrl}}" name="imageUpload" placeholder="http://example.com" />
       </label>
 
 
