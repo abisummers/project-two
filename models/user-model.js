@@ -33,7 +33,6 @@ const userSchema = new Schema(
     },
     startDate: {
       type: String,
-      required: true
     }
   },
   { timestamps: true }
