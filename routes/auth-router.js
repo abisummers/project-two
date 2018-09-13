@@ -31,7 +31,7 @@ router.post(
       avatar = req.file.secure_url;
     }
 
-    User.create({ 
+    User.create({
       fullName,
       email,
       course,
@@ -43,8 +43,8 @@ router.post(
       .then(userDoc => {
         sendSignupMail(userDoc)
           .then(() => {
-          req.flash("success", "account created successfully");
-          res.redirect("/");
+            req.flash("success", "account created successfully");
+            res.redirect("/");
           })
           .catch(err => next(err));
       })
@@ -72,9 +72,6 @@ router.get("/home", (req, res, next) => {
 
   res.render("homepage.hbs");
 });
-
-
-
 
 router.post("/process-login", (req, res, next) => {
   const { userPassword, email } = req.body;
