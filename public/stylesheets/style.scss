@@ -23,7 +23,7 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  color: 	#383838;
+  color: #383838;
 }
 
 h1 {
@@ -37,7 +37,7 @@ h2  {
 }
 
 button {
-  background-color: #6093C7;
+  background-color: #6093c7;
   border-style: none;
   color: white;
   font-weight: bold;
@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-  background-color:#1A2D41;
+  background-color: #1a2d41;
 }
 
 // FOOTER -------------------
@@ -56,12 +56,12 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #2d62d7;
+  background-color: #32c3ff;
   color: white;
   text-align: center;
   text-transform: uppercase;
+  z-index: 1;
 }
-
 
 //----------------------------------DESKTOP--------------------------------------------
 

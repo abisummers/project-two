@@ -25,7 +25,7 @@ h1 {
   margin-bottom: 15px; }
 
 button {
-  background-color: #2d62d7;
+  background-color: #32c3ff;
   color: white;
   font-weight: bold;
   padding: 1% 10%;
@@ -44,7 +44,7 @@ button {
   text-align: center;
   text-decoration: none;
   color: white;
-  background-color: #2d62d7;
+  background-color: #32c3ff;
   width: 50%;
   border: 1px black solid;
   padding: 20px;
@@ -60,9 +60,8 @@ button {
   padding-left: 0;
   border: black 1px solid;
   list-style-type: none;
-  margin-bottom: 4%;
   width: 30%;
-  margin: auto; }
+  margin: 0 auto 4%; }
 
 .idea-list-layout h3,
 .idea-list-layout a,
@@ -105,17 +104,28 @@ button {
   .ideas > .idea-list-layout {
     width: 80%; } }
 
+nav img {
+  visibility: hidden; }
+
 @media (min-width: 450px) {
   nav {
-    background-color: #6093c7;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between; }
+    justify-content: space-between;
+    box-shadow: 0 0 3px #32c3ff; }
   nav a,
   nav b {
-    color: white;
+    color: #171795;
     text-decoration: none;
-    text-transform: uppercase; } }
+    text-transform: uppercase;
+    padding: 0 7px; }
+  nav img {
+    visibility: visible;
+    object-fit: cover;
+    height: 50px; }
+  .logo {
+    display: flex;
+    color: #32c3ff; } }
 
 /*# sourceMappingURL=home.css.map */
