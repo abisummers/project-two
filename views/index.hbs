@@ -1,25 +1,24 @@
-<h1 id="title">Ironhack Project Sharer</h1>
-
 {{>flash_messages}}
 
-<section>
-  <div class="login">
-    <form action="/process-login" method="POST">
+<div class="main-wrapper-form">
+  <h1 class="form-h1 login">Ironhack Sharer</h1>
 
-      <label>Email
-        <br>
-        <input type="email" name="email" placeholder="hello@me.com">
-      </label>
-      <br>
+  <p class="form-p">Ironhack sharer is a tool designed to help UX/UI design students and web development students  communicate on their projects</p>
 
-      <label>Password
-        <br>
-        <input type="password" name="userPassword" placeholder="enteryoursecret">
+  
+    <form class="form" action="/process-login" method="POST">
+      <div class="form-all-labels">
+      <label class="form-label">Email:
+        <input class="form-input" type="email" name="email" placeholder="hello@me.com">
       </label>
 
-      <br>
-      <button>SUBMIT</button>
+      <label class="form-label">Password:
+        <input class="form-input" type="password" name="userPassword" placeholder="enteryoursecret">
+      </label>
+      </div>
+
+      <button class="form-button">SUBMIT</button>
 
     </form>
+    <p>Don't have an account yet? <a class="link" href="/signup">Sign up here</a></p>
   </div>
-</section>

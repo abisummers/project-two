@@ -3,13 +3,17 @@
 [class$="-message"] {
   border: 3px solid;
   border-radius: 3px;
-  padding: 10px; }
+  padding: 10px;
+  text-align: center;
+  font-weight: bold; }
 
 .success-message {
-  color: chartreuse; }
+  background-color: #228B22;
+  color: #fff; }
 
 .error-message {
-  color: crimson; }
+  color: #fff;
+  background-color: #B22222; }
 
 body {
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif "Permanent Marker";
@@ -43,6 +47,13 @@ button {
 
 button:hover {
   background-color: #1a2d41; }
+
+.link {
+  text-decoration: none;
+  color: #32c3ff; }
+
+.link:hover {
+  color: #1a2d41; }
 
 footer {
   position: fixed;

@@ -2,6 +2,9 @@
 
 //------------------------------ MOBILE ----------------------------
 
+
+
+
 //FORM PAGES---------------------------------------------------------------
 
 .main-wrapper-form {
@@ -15,8 +18,18 @@
 
 
 .form-h1 {
-  margin: 15%;
-  // color: #fff;
+  margin: 10% 0;
+}
+
+ .login {
+  margin: 8% 0;
+ }
+
+.form-p {
+  font-size: 16px;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 8%;
 }
 
 .form {
@@ -189,15 +202,6 @@
 }
 
 
-.profile-files a {
-  text-decoration: none;
-  color: #383838;
-}
-
-.profile-files a:hover {
-  color: #32c3ff;
-}
-
 .profile-modifications {
   display: flex;
   justify-content: center;
@@ -214,8 +218,14 @@
 
 @media (min-width: 450px) {
 
+//FORM PAGES--------------------------------------------------------
   .form-h1 {
     margin: 6%;
+  }
+  .form-p {
+    font-size: 20px;
+    width: 50%;
+    margin-bottom: 5%;
   }
 
   .form {
