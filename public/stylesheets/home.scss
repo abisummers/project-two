@@ -32,7 +32,6 @@
 .verified-users p {
   color: #383838;
 }
-
 .home-section {
   display: flex;
   flex-direction: column;
@@ -44,6 +43,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+  }
+  .non-verified-users {
+    height: 20%;
+    background-color: white;
   }
 }
 

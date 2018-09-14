@@ -1,5 +1,7 @@
 <h1>PROJECTS AND IDEAS</h1>
 
+
+
 {{>flash_messages}}
 
 {{#if currentUser.isAdmin}}
@@ -7,6 +9,10 @@
   <p>You have {{userVerifiedNumber}} users to verify</p>
   <a href="/admin/non-verified-users"><button>Verify users</button></a>
 </div>
+
+
+{{else}}
+<div class="non-verified-users"> </div>
 {{/if}}
 
 
