@@ -116,6 +116,21 @@
   .ideas > .idea-list-layout {
     width: 80%; } }
 
+.admin-buttons-group {
+  display: flex;
+  flex-direction: column; }
+
+.admin-buttons-group a {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase; }
+
+.admin-buttons-group a > button {
+  width: 60%;
+  text-align: center;
+  margin: 20% auto; }
+
 nav img {
   object-fit: cover;
   height: 50px;
@@ -136,6 +151,16 @@ nav img {
     padding: 0 7px; }
   .logo {
     display: flex;
-    color: #32c3ff; } }
+    color: #32c3ff; }
+  .admin-buttons-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  .admin-buttons-group a {
+    text-align: center;
+    width: 50%;
+    text-transform: uppercase; }
+  .admin-buttons-group button {
+    padding: 15% 10%; } }
 
 /*# sourceMappingURL=home.css.map */

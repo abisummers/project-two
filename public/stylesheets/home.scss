@@ -87,7 +87,6 @@
 .idea-list-layout,
 .project-list-layout {
   padding-left: 0;
-
   list-style-type: none;
   width: 30%;
   margin: 0 auto 4%;
@@ -150,6 +149,26 @@
   }
 }
 
+//-----------------ADMIN HOMEPAGE -------------------------
+
+.admin-buttons-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-buttons-group a {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.admin-buttons-group a > button {
+  width: 60%;
+  text-align: center;
+  margin: 20% auto;
+}
+
 //-----------------------DESKTOP -------------------------
 
 nav img {
@@ -178,5 +197,21 @@ nav img {
   .logo {
     display: flex;
     color: #32c3ff;
+  }
+
+  .admin-buttons-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .admin-buttons-group a {
+    text-align: center;
+    width: 50%;
+    text-transform: uppercase;
+  }
+
+  .admin-buttons-group button {
+    padding: 15% 10%;
   }
 }
