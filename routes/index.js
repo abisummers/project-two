@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user-model.js");
+const Idea = require("../models/idea-model.js");
+const Project = require("../models/project-model.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -22,7 +24,18 @@ router.get("/profile", (req, res, next) => {
     return;
   }
 
-  res.render("profile/profile.hbs");
+
+  Project.find({author:req.user._id})
+    .then(result => {
+      res.locals.projectArray = result;
+      Idea.find({author:req.user._id})
+        .then(result => {
+          res.locals.ideaArray = result;
+          res.render("profile/profile.hbs");
+        })
+        .catch(err => next(err));
+    })
+    .catch(err => next(err));
 });
 
 

@@ -1,13 +1,44 @@
-<h2>YOUR PROFILE</h2>
+<div class="profile-content">
+    <div class="profile-information">
+        <img src="{{currentUser.avatar}}" alt="profile pciture" height="100px">
+        <h1>{{currentUser.fullName}}</h1>
+        <p>{{currentUser.aboutUser}}</p>
+        <p>{{currentUser.email}}</p>
+        <p>{{currentUser.course}}</p>
+        <p>{{currentUser.startDate}}</p>
+    </div>
 
-<p>Name: {{currentUser.fullName}}</p>
-<p>Email: {{currentUser.email}}</p>
-<p>Course: {{currentUser.course}}</p>
-<p>Start date: {{currentUser.startDate}}</p>
-<p>About me: {{currentUser.aboutUser}}</p>
+    <div class="profile-other-information">
+        <div class="profile-files">
+            <h2>Your projects</h2>
+            <ul>
+                {{#each projectArray}}
+                <li>
+                  <a href="/project/{{this.-id}}"><p>{{this.name}}</p></a>
+                </li>
+                {{else}}
+                    <li>There is no project yet</li>
+                    <li><a href="/add-project">Add your amazing project</a></li>
+                {{/each}}
+            </ul>
+        </div>
 
+        <div class="profile-files profile-idea ">
+            <h2>Your ideas</h2>
+            <ul>
+                {{#each ideaArray}}
+                <li>
+                  <a href="/idea/{{this.-id}}"><p>{{this.name}}</p></a>
+                </li>
+                {{else}}
+                    <li>There is no idea yet</li>
+                    <li><a href="/add-idea">Add your amazing idea</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
 
-<img src="{{currentUser.avatar}}" alt="profile pciture" height="100px">
-
-
+<div class="profile-modifications">
 <a href="/profile-settings"><button>Edit</button></a>
+</div>
