@@ -47,10 +47,10 @@ router.post(
           avatar,
           aboutUser
         }).then(userDoc => {
-          return sendSignupMail(userDoc).then(() => {
-            req.flash("success", "account created successfully");
-            res.redirect("/");
-          });
+          //return sendSignupMail(userDoc).then(() => {
+          req.flash("success", "account created successfully");
+          res.redirect("/");
+          // });
         });
       })
       .catch(err => next(err));
