@@ -66,6 +66,10 @@ footer {
   text-transform: uppercase;
   z-index: 1; }
 
+footer a {
+  text-decoration: none;
+  color: white; }
+
 @media (min-width: 450px) {
   button {
     padding: 2% 5%; } }

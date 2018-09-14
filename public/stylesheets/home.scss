@@ -7,6 +7,11 @@
 
 //HOME PAGE -----------------------
 
+.verified-users a button:hover,
+.home-buttons a > button:hover {
+  background-color: #1a2d41;
+}
+
 .home-buttons,
 .verified-users {
   text-align: center;
@@ -113,6 +118,10 @@
   width: 30%;
   height: 100px;
   height: 250px;
+}
+
+.h3-create-list {
+  color: white;
 }
 
 @media (max-width: 600px) {
