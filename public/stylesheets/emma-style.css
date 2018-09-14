@@ -161,6 +161,31 @@
 .profile-modifications button {
   padding: 8px 20px; }
 
+.users {
+  display: flex;
+  flex-direction: column;
+  padding: 2%; }
+
+.users li {
+  list-style: none;
+  padding: 0; }
+
+.user-item {
+  padding: 3%;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 4px #808080;
+  margin-bottom: 5%; }
+
+.user-item img {
+  height: 50px; }
+
+.user-item button {
+  padding: 8px 10px; }
+
+.user-info {
+  padding: 0; }
+
 @media (min-width: 450px) {
   .form-h1 {
     margin: 6%; }
@@ -210,6 +235,13 @@
     width: 30%;
     margin: 0; }
   .profile-idea {
-    margin: 0; } }
+    margin: 0; }
+  .users {
+    width: 70%;
+    margin: auto; }
+  .user-item img {
+    height: 75px; }
+  .user-item button {
+    padding: 8px 20px; } }
 
 /*# sourceMappingURL=emma-style.css.map */

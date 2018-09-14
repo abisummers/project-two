@@ -209,10 +209,47 @@
   margin-bottom: 10%;
 }
 
-//button loses padding when applying flex.Why? 
+
 .profile-modifications button {
   padding: 8px 20px;
 }
+
+//USERS LIST-----------------------------------------------------
+
+.users {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.users li {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item {
+  padding: 3%;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 4px #808080;
+  margin-bottom: 5%;
+}
+
+.user-item img {
+  height: 50px;
+}
+
+.user-item button {
+  padding: 8px 10px;
+}
+
+.user-info {
+  padding: 0;
+}
+
+
+
+
 //------------------------------ DESKTOP ----------------------------
 
 
@@ -306,4 +343,23 @@
 .profile-idea {
   margin:0;
 }
+
+//USERS LIST--------------------------------------------------------
+
+.users {
+  width: 70%;
+  margin:auto;
 }
+
+.user-item img {
+  height: 75px;
+}
+
+.user-item button {
+  padding: 8px 20px;
+}
+
+
+
+}
+
