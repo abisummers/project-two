@@ -4,15 +4,15 @@
 
   <form class="form" action="/process-signup" method="POST" enctype="multipart/form-data">
     <div class="form-all-labels">
-      <label class="form-label">Full Name:
+      <label class="form-label">Full Name (minimum 6 characters) *:
         <input class="form-input" type="text" name="fullName" placeholder=" Your Name" minlength="6">
       </label>
 
-      <label class="form-label">Email:
+      <label class="form-label">Email *:
         <input class="form-input" type="email" name="email" placeholder="Your email address">
       </label>
 
-      <label class="form-label">Password:
+      <label class="form-label">Password (minimum 6 characters) *:
         <input class="form-input" type="password" name="userPassword" placeholder="yoursecret" minlength="6">
       </label>
 
@@ -24,7 +24,7 @@
         <textarea class="form-textarea" name="aboutUser" placeholder="tell us about you"></textarea>
       </label>
 
-      <label class="form-label"> Course:
+      <label class="form-label"> Course*:
         <select class="form-select" name="course">
           <option>Web Dev</option>
           <option>UX</option>
@@ -36,6 +36,8 @@
       <label class="form-label">Start Date:
         <input class="form-input" type="text" name="startDate" placeholder="August 2018">
       </label>
+
+      <p>* required fields</p>
     </div>
     <button class="form-button">SUBMIT</button>
   </form>
