@@ -14,11 +14,11 @@
             <ul>
                 {{#each projectArray}}
                 <li>
-                  <a href="/project/{{this.-id}}"><p>{{this.name}}</p></a>
+                  <a class="link" href="/projects/{{this._id}}"><p>{{this.name}}</p></a>
                 </li>
                 {{else}}
                     <li>There is no project yet</li>
-                    <li><a  class="link" href="/add-project">Add your amazing project</a></li>
+                    <li><a class="link" href="/add-project">Add your amazing project</a></li>
                 {{/each}}
             </ul>
         </div>
@@ -28,7 +28,7 @@
             <ul>
                 {{#each ideaArray}}
                 <li>
-                  <a href="/idea/{{this.-id}}"><p>{{this.name}}</p></a>
+                  <a class="link" href="/ideas/{{this._id}}"><p>{{this.name}}</p></a>
                 </li>
                 {{else}}
                     <li>There is no idea yet</li>

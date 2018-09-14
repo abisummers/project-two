@@ -50,7 +50,7 @@ router.post(
           return sendSignupMail(userDoc).then(() => {
             req.flash("success", "account created successfully");
             res.redirect("/");
-          });
+           });
         });
       })
       .catch(err => next(err));
