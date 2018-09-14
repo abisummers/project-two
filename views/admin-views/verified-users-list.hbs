@@ -1,18 +1,16 @@
-<h2>Admin Zone</h2>
+<h1>Admin Zone</h1>
 
-<h3>Verified User List</h3>
+<h2>Verified User List</h2>
 
-<ul>
+<ul class="">
   {{#each userArray}}
-  <li>
-    <h4>{{this.fullName}}</h4>
-    <ul>
-      <li>Email: {{this.email}}</li>
-      <li>Registered: {{this.createdAt}}</li>
-      <li>Role: {{this.role}}</li>
-      <li><img src="{{this.avatar}}" alt="profile pic" height="100px"/></li>
-    </ul>
-    <a href="/admin/{{this._id}}/delete"><button>DELETE</button></a>
-  </li>
+  <li><img src="{{this.avatar}}" alt="profile pic" height="50px"/></li>
+  <li>{{this.fullName}}</li>
+  <li>{{this.email}}</li>
+  <li>{{this.role}}</li>
+  <li>{{this.course}}</li>
+  <ul>    
+    <li><a href="/admin/{{this._id}}/delete"><button>DELETE</button></a></li>
+  </ul>
   {{/each}}
 </ul>
