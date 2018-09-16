@@ -1,31 +1,33 @@
-<h1 class="idea-list">Ideas list</h1>
+<div class="main-wrapper">
+  <h1 class="idea-list">Ideas list</h1>
 
-<div class="list-container">
+  <div class="list-container">
 
-  <ul class="ideas">
-    {{#each ideaArray}}
+    <ul class="ideas">
+      {{#each ideaArray}}
 
 
-    <li class="idea-list-layout">
+      <li class="idea-list-layout">
 
-      <h3>{{this.name}}</h3>
-      <img src="{{this.picture}}" />
-      <br>
-      <a class="idea-button" href="/ideas/{{this._id}}"><button>See more</button></a>
+        <h3>{{this.name}}</h3>
+        <img src="{{this.picture}}" />
+        <br>
+        <a class="idea-button" href="/ideas/{{this._id}}"><button>See more</button></a>
 
-    </li>
+      </li>
 
-    {{else}}
-    <p>There is no ideas yet</p>
-    <a href="/add-idea">Add your amazing idea</a>
-    {{/each}}
+      {{else}}
+      <p>There is no ideas yet</p>
+      <a href="/add-idea">Add your amazing idea</a>
+      {{/each}}
 
-    <li class="idea-list-layout">
-      <h3 class="h3-create-list">A</h3>
-      <img src="/images/add.png" alt="">
-      <br>
-      <a class="idea-button" href="/add-idea"><button>ADD AN IDEA</button></a>
-    </li>
-  </ul>
+      <li class="idea-list-layout">
+        <h3 class="h3-create-list">A</h3>
+        <img src="/images/add.png" alt="">
+        <br>
+        <a class="idea-button" href="/add-idea"><button>ADD AN IDEA</button></a>
+      </li>
+    </ul>
 
+  </div>
 </div>

@@ -1,36 +1,30 @@
 {{>flash_messages}}
-<h1>PROJECTS AND IDEAS</h1>
+
+<div class="home-wrapper">
+
+  <h1 class="home-title">PROJECTS AND IDEAS</h1>
 
 
-
-
-{{#if currentUser.isAdmin}}
-<div class="verified-users">
-  <p>You have {{userVerifiedNumber}} users to verify</p>
-  <a href="/admin/non-verified-users"><button>VERIFY USERS</button></a>
-</div>
-
-
-{{else}}
-<div class="non-verified-users"> </div>
-{{/if}}
-
-
-
-
-<div class="home-section">
-
-  <div class="home-buttons home-button-text">
-    <a href="/ideas"><button>IDEAS</button></a>
-    <br>
-
-    <a href="/add-idea"> <button>CREATE</button> </a>
+  {{#if currentUser.isAdmin}}
+  <div class="admin-section">
+    <p>You have {{userVerifiedNumber}} users to verify</p>
+    <a href="/admin/non-verified-users"><button class="home-button">VERIFY USERS</button></a>
   </div>
+  {{/if}}
+
+  <div class="main-section">
+    <div class="idea-section">
+      <a href="/ideas"><button class="home-button">IDEAS</button></a>
+      <br>
+
+      <a href="/add-idea"> <button class="home-button">CREATE AN IDEA</button> </a>
+    </div>
 
 
-  <div class="home-buttons home-button-text">
-    <a href="/projects"><button>PROJECTS</button></a>
-    <br>
-    <a href="/add-project"><button>CREATE</button></a>
+    <div class="idea-section">
+      <a href="/projects"><button class="home-button">PROJECTS</button></a>
+      <br>
+      <a href="/add-project"><button class="home-button">CREATE A PROJECT</button></a>
+    </div>
   </div>
 </div>

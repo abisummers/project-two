@@ -1,28 +1,29 @@
-<h1 class="project-list">Projects list</h1>
+<div class="main-wrapper">
+  <h1 class="project-list">Projects list</h1>
 
 
-<div class="list-container">
+  <div class="list-container">
 
-  <ul class="ideas">
-    {{#each projectArray}}
-    <li class="project-list-layout">
+    <ul class="ideas">
+      {{#each projectArray}}
+      <li class="project-list-layout">
 
-      <h3>{{this.name}}</h3>
-      <img src="{{this.picture}}" />
-      <br>
-      <a class="project-button" href="/projects/{{this._id}}"><button>See more</button></a>
-    </li>
-
-
-    {{/each}}
+        <h3>{{this.name}}</h3>
+        <img src="{{this.picture}}" />
+        <br>
+        <a class="project-button" href="/projects/{{this._id}}"><button>See more</button></a>
+      </li>
 
 
-    <li class="idea-list-layout">
-      <h3 class="h3-create-list">CREATE</h3>
-      <img src="/images/add.png" alt="">
-      <br>
-      <a class="idea-button" href="/add-project"><button>ADD A PROJECT</button></a>
-    </li>
-  </ul>
+      {{/each}}
 
+
+      <li class="idea-list-layout">
+        <h3 class="h3-create-list">CREATE</h3>
+        <img src="/images/add.png" alt="">
+        <br>
+        <a class="idea-button" href="/add-project"><button>ADD A PROJECT</button></a>
+      </li>
+    </ul>
+  </div>
 </div>

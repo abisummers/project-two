@@ -10,6 +10,7 @@
 }
 
 .success-message {
+  border: 1px solid #228B22;
   background-color: #228B22;
   color: #fff;
 }
@@ -17,6 +18,7 @@
 .error-message {
   color:#fff;
   background-color: #B22222;
+  border: 1px solid #B22222;
 }
 
 //----------------------GENERAL -------------------
@@ -26,9 +28,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  // height: 100vh;
-  // width: 100vw;
   color: #383838;
+  background-image: url(http://www.as-architecture.com/data/projets_091b3/fiche/66/gallery_wework_paris_8-031_1_web_b19d3.jpg);
+  background-size: cover;
 }
 
 h1 {
@@ -104,7 +106,8 @@ nav {
 
 // FOOTER ----------------------------------------------------------------------
 .content {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 40px);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 footer {
@@ -149,7 +152,11 @@ footer a {
 
 @media (min-width: 450px) {
 //GENERAL------------------------------------------------------------------------------
-  button {
+h1 {
+  font-size: 40px;
+}
+
+button {
     padding: 2% 5%;
   }
 

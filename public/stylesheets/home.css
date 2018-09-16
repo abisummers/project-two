@@ -1,51 +1,66 @@
-.verified-users a button:hover,
-.home-buttons a > button:hover {
-  background-color: #1a2d41; }
-
-.home-buttons,
-.verified-users {
-  text-align: center;
-  box-shadow: 0 0 8px #808080;
-  width: 45%;
-  margin: auto;
-  margin-bottom: 30px;
-  padding: 20px 0; }
-
-.verified-users a > button,
-.home-button-text a > button {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  background-color: #32c3ff;
-  width: 50%;
-  padding: 20px;
-  margin: 30px 0; }
-
-.verified-users p {
-  color: #383838; }
-
-.home-section {
+.home-wrapper, .main-section {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; }
+
+.home-title {
+  margin: 6% 0 10%; }
+
+.admin-section {
+  width: 80%;
+  padding: 15% 5%;
+  margin-bottom: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px #808080;
+  background-color: #fff; }
+
+.main-section {
+  width: 80%; }
+
+.idea-section, .project-section {
+  width: 100%;
+  padding: 15% 5%;
+  box-sizing: border-box;
+  margin-bottom: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 8px #808080;
+  background-color: #fff; }
+
+.home-button {
+  min-width: 160px;
+  min-height: 80px; }
 
 @media (min-width: 600px) {
-  .home-section {
-    margin-left: 0;
+  .home-title {
+    margin: 4% 0 8%; }
+  .admin-section {
+    width: 50%;
+    padding: 5% 10%;
+    margin-bottom: 5%; }
+  .main-section {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    justify-content: center;
     align-items: center; }
-  .non-verified-users {
-    height: 20%;
-    background-color: white; } }
+  .idea-section, .project-section {
+    width: 40%;
+    padding: 6% 5%; }
+  .idea-section {
+    margin-right: 10%; } }
+
+.main-wrapper {
+  background-color: #fff; }
 
 .idea-list,
 .project-list {
-  text-transform: uppercase;
   text-align: center;
-  font-family: "Permanent Marker"; }
+  margin-top: 0;
+  padding-top: 3%; }
 
 .idea-list-layout,
 .project-list-layout {
@@ -65,8 +80,8 @@
 .project-list-layout img {
   object-fit: cover;
   background: 50% 50% no-repeat;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   display: block;
   margin: auto; }
 
@@ -83,7 +98,8 @@
 .ideas {
   display: flex;
   padding: 0;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin: 0; }
 
 .project-list-layout > div {
   flex: 1 1 200px; }
