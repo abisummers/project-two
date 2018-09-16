@@ -19,36 +19,32 @@
 
 
     <nav>
-      <div class="logo">
+      <div class="logo-nav">
         <a href="/home"><img src="https://pbs.twimg.com/profile_images/1031555260911939586/e01tx3UC_400x400.jpg" alt="Ironhack logo"></a>
         <p>SHARER</p>
       </div>
 
-      <div>
+      <div class="menu-nav">
         {{#if currentUser.verified}}
-        <b>Hi, {{currentUser.fullName}}</b>
+        <p>Hi, <b>{{currentUser.fullName}}</b></p>
         {{/if}}
-      </div>
-
-      <div>
         {{#if currentUser.verified}}
         <a href="/home">Home</a>
         <a href="/projects">Projects</a>
         <a href="/ideas">Ideas</a>
         <a href="/profile">Profile</a>
         <a href="/logout">Log Out</a>
-
         {{#if currentUser.isAdmin}}
         <a href="/admin/homepage">User Management</a>
         {{/if}}
         {{else}}
-
         <a href="/">Login</a>
         <a href="/signup">Sign up</a>
         {{/if}}
       </div>
+
     </nav>
-    <a href="#main-menu-toggle" class="backdrop" hidden></a>
+    {{!-- <a href="#main-menu-toggle" class="backdrop" hidden></a> --}}
   </header>
 
 <div class="content">

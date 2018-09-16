@@ -29,7 +29,7 @@ router.post(
     User.findOne({ email })
       .then(userEmail => {
         if (userEmail) {
-          req.flash("error", "this email exists");
+          req.flash("error", "There is already an account using this email");
           res.redirect("/");
           return;
         }
@@ -48,7 +48,7 @@ router.post(
           aboutUser
         }).then(userDoc => {
           return sendSignupMail(userDoc).then(() => {
-            req.flash("success", "account created successfully");
+            req.flash("success", "Account created successfully");
             res.redirect("/");
           });
         });
@@ -96,12 +96,12 @@ router.post("/process-login", (req, res, next) => {
       }
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(userPassword, encryptedPassword)) {
-        req.flash("error", "Your password is wrong");
+        req.flash("error", "Wrong password");
         res.redirect("/");
         return;
       }
       req.logIn(userDoc, () => {
-        req.flash("success", "you are logged in");
+        req.flash("success", "Successful login");
         res.redirect("/home");
       });
     })
@@ -113,7 +113,7 @@ router.post("/process-login", (req, res, next) => {
 router.get("/logout", (req, res, next) => {
   //req.logOut() is a passport method
   req.logOut();
-  req.flash("success", "logout successful");
+  req.flash("success", "Successful logout");
   res.redirect("/");
 });
 

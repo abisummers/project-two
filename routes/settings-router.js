@@ -10,7 +10,7 @@ const fileUploader = require("../config/file-uploader.js");
 
 router.get("/profile-settings", (req, res, next) => {
   if (!req.user) {
-    req.flash("error", "you must be logged in to see this page");
+    req.flash("error", "You must be logged in to see this page");
     res.redirect("/");
     return;
   }
@@ -75,7 +75,7 @@ router.get("/project-settings/:projectId", (req, res, next) => {
   const { projectId } = req.params;
 
   if (!req.user) {
-    req.flash("error", "you must be logged in to see this page");
+    req.flash("error", "You must be logged in to see this page");
     res.redirect("/");
   }
 
@@ -129,7 +129,7 @@ router.post(
 
 router.get("/idea-settings/:ideaId", (req, res, next) => {
   if (!req.user) {
-    req.flash("error", "you must be logged in to see this page");
+    req.flash("error", "You must be logged in to see this page");
     res.redirect("/");
   }
 

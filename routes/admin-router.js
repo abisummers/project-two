@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get("/admin/homepage", (req, res, next) => {
   if (!req.user || req.user.role !== "admin") {
-    req.flash("error", "Only admins can see this page");
+    req.flash("error", "Only admins can access this page");
     res.redirect("/");
     return;
   }
@@ -19,7 +19,7 @@ router.get("/admin/homepage", (req, res, next) => {
 //------------------VERIFIED USERS LIST---------------------------------------
 router.get("/admin/verified-users", (req, res, next) => {
   if (!req.user || req.user.role !== "admin") {
-    req.flash("error", "Only admins can see this page");
+    req.flash("error", "Only admins can access this page");
     res.redirect("/");
     return;
   }
@@ -35,7 +35,7 @@ router.get("/admin/verified-users", (req, res, next) => {
 //-----------------NON VERIFIED USERS LIST-------------------------------------
 router.get("/admin/non-verified-users", (req, res, next) => {
   if (!req.user || req.user.role !== "admin") {
-    req.flash("error", "Only admins can see this page");
+    req.flash("error", "Only admins can access this page");
     res.redirect("/");
     return;
   }

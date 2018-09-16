@@ -68,6 +68,40 @@ button:hover {
   color: #1a2d41;
 }
 
+//NAV-------------------------------------------------------------------------
+header {
+  height: 50px;
+}
+
+nav {
+  height: 50px;
+  width: 100%;
+  position:fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 0 4px #32c3ff;
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+    color: #32c3ff;
+}
+
+.logo-nav img {
+  height: 50px;
+}
+
+.logo-nav > p {
+  font-family: "Permanent Marker";
+} 
+
+// .menu-nav {
+//   display:none;
+// }
+
 // FOOTER ----------------------------------------------------------------------
 .content {
   min-height: calc(100vh - 60px);
@@ -85,13 +119,11 @@ footer {
 }
 
 footer > p {
-  // margin: 1% 1% 0;
   margin: auto;
   font-weight: bold;
 }
 
 .logo-footer {
-  // margin: 0 1%;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -130,4 +162,28 @@ footer > p {
   margin: 0 1%;
 }
 
+
+//NAV--------------------------------------------------------------------------------
+.menu-nav {
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menu-nav > p {
+  margin-right: 6%;
+  text-transform: uppercase;
+}
+
+.menu-nav > a {
+  margin-right: 3%;
+  color: #383838;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu-nav > a:hover {
+  color: #32c3ff;
+}
 }

@@ -121,27 +121,7 @@
   margin: 20% auto;
   font-size: 25px; }
 
-nav img {
-  object-fit: cover;
-  height: 50px;
-  border: none; }
-
 @media (min-width: 450px) {
-  nav {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 0 4px #32c3ff; }
-  nav a,
-  nav b {
-    color: #383838;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 0 7px; }
-  .logo {
-    display: flex;
-    color: #32c3ff; }
   .admin-buttons-group {
     display: flex;
     flex-direction: row;
