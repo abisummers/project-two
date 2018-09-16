@@ -73,12 +73,38 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  height: 40px;
   width: 100%;
+  box-sizing: border-box;
   background-color: #32c3ff;
   color: white;
-  text-align: center;
-  text-transform: uppercase;
   z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer > p {
+  // margin: 1% 1% 0;
+  margin: auto;
+  font-weight: bold;
+}
+
+.logo-footer {
+  // margin: 0 1%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-footer > p {
+  font-family: "Permanent Marker";
+  margin:0 5px;
+}
+
+footer img {
+  height: 30px;
+  margin:auto;
 }
 
 footer a {
@@ -89,7 +115,18 @@ footer a {
 //----------------------------------DESKTOP--------------------------------------------
 
 @media (min-width: 450px) {
+//GENERAL------------------------------------------------------------------------------
   button {
     padding: 2% 5%;
   }
+
+//FOOTER------------------------------------------------------------------------------
+footer > p {
+  margin: 1% 1% 0;
+}
+
+.logo-footer {
+  margin: 0 1%;
+}
+
 }

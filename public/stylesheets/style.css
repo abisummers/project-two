@@ -59,12 +59,32 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  height: 40px;
   width: 100%;
+  box-sizing: border-box;
   background-color: #32c3ff;
   color: white;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 1; }
+  z-index: 1;
+  display: flex;
+  justify-content: space-between; }
+
+footer > p {
+  margin: auto;
+  font-weight: bold; }
+
+.logo-footer {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.logo-footer > p {
+  font-family: "Permanent Marker";
+  margin: 0 5px; }
+
+footer img {
+  height: 30px;
+  margin: auto; }
 
 footer a {
   text-decoration: none;
@@ -72,6 +92,10 @@ footer a {
 
 @media (min-width: 450px) {
   button {
-    padding: 2% 5%; } }
+    padding: 2% 5%; }
+  footer > p {
+    margin: 1% 1% 0; }
+  .logo-footer {
+    margin: 0 1%; } }
 
 /*# sourceMappingURL=style.css.map */
