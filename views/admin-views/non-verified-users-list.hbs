@@ -1,20 +1,22 @@
-<h1>Admin Zone</h1>
+<div class="user-main-content">
+  <h1 class="user-title">Admin Zone</h1>
 
-<h2>Non verified user list</h2>
+  <h2>Non verified user list</h2>
 
-<ul class="users">
-  {{#each userArray}}
-  <li>
-    <ul class="user-item">
-      <li><img src="{{this.avatar}}" alt="profile pic"/></li>
-      <ul class="user-info">
-        <li>{{this.fullName}}</li>
-        <li>{{this.email}}</li>
-        <li>{{this.role}}</li>
-        <li>{{this.course}}</li>  
-      </ul> 
-    <li><a href="/admin/{{this._id}}/approve"><button>APPROVE</button></a></li> 
-   </ul>
-  </li>
-  {{/each}}
-</ul>
+  <ul class="users">
+    {{#each userArray}}
+    <li>
+      <ul class="user-item">
+        <li><img src="{{this.avatar}}" alt="profile pic"/></li>
+        <ul class="user-info">
+          <li>{{this.fullName}}</li>
+          <li>{{this.email}}</li>
+          <li>{{this.role}}</li>
+          <li>{{this.course}}</li>  
+        </ul> 
+      <li><a href="/admin/{{this._id}}/approve"><button>APPROVE</button></a></li> 
+     </ul>
+    </li>
+    {{/each}}
+  </ul>
+</div>

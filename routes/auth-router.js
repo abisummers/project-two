@@ -59,6 +59,7 @@ router.post(
 
 //-------------------------LOG IN -------------------------------
 router.get("/", (req, res, next) => {
+  res.locals.toBeApproved = !req.user.verifed;
   res.render("index.hbs");
 });
 
@@ -70,7 +71,7 @@ router.get("/home", (req, res, next) => {
   }
 
   if (!req.user.verified) {
-    req.flash("error", "You must be approved by the admin to see this page");
+    req.flash("error", "You must be approved by the admin to access this website");
     res.redirect("/");
     return;
   }
