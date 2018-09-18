@@ -54,7 +54,8 @@
     margin-right: 10%; } }
 
 .main-wrapper {
-  background-color: #fff; }
+  background-color: #fff;
+  min-height: 100vh; }
 
 .idea-list,
 .project-list {
