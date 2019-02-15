@@ -11,25 +11,25 @@ const path = require("path");
 
 //additional three npm packages installed for flash messages and sessions
 const session = require("express-session");
-const mongoStore = require("connect-mongo")(session);
+// const mongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 
 //aquiring passport
 const passportSetup = require("./config/passport/passport-setup.js");
 
-mongoose
-  .connect(
-    process.env.MONGODB_URI,
-    { useNewUrlParser: true }
-  )
-  .then(x => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-  })
-  .catch(err => {
-    console.error("Error connecting to mongo", err);
-  });
+// mongoose
+//   .connect(
+//     process.env.MONGODB_URI,
+//     { useNewUrlParser: true }
+//   )
+//   .then(x => {
+//     console.log(
+//       `Connected to Mongo! Database name: "${x.connections[0].name}"`
+//     );
+//   })
+//   .catch(err => {
+//     console.error("Error connecting to mongo", err);
+//   });
 
 const app_name = require("./package.json").name;
 const debug = require("debug")(
@@ -69,7 +69,7 @@ app.use(
     resave: true,
 
     //use connect-mongo to store session info inside mongoDB
-    store: new mongoStore({ mongooseConnection: mongoose.connection })
+    // store: new mongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
