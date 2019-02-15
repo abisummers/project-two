@@ -22,3 +22,50 @@
     </form>
     <p>Don't have an account yet? <a class="link" href="/signup">Sign up here</a></p>
   </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/algolia-min.css">
+<div id="searchResults">
+  <div id="searchbox"></div>
+  <div id="hits"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.32.0/dist/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.1.0/dist/instantsearch.production.min.js"></script>
+<script>
+// use their credentials of course
+const searchClient = algoliasearch('B1G2GM9NG0', 'aadef574be1f9252bb48d4ea09b5cfe5');
+
+const search = instantsearch({
+  indexName: 'demo_ecommerce',
+  searchClient,
+});
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#searchbox',
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      item: `
+        <div>
+          <img src="{{image}}" align="left" alt="{{name}}" />
+          <div class="hit-name">
+            {{!-- the backslash before the double brackets are becuase we use it in hbs --}}
+            \{{#helpers.highlight}}{ "attribute": "name" }\{{/helpers.highlight}}
+          </div>
+          <div class="hit-description">
+            \{{#helpers.highlight}}{ "attribute": "description" }\{{/helpers.highlight}}
+          </div>
+          <div class="hit-price">\${{price}}</div>
+        </div>
+      `,
+    },
+  })
+);
+
+search.start();
+</script>
+
